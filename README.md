@@ -87,7 +87,7 @@ bash script/Run.sh
 
 - **[pyCheckmol](https://github.com/jeffrichardchemistry/pyCheckmol):** Application for detecting functional groups of a molecules
 
-- **[ESMC](https://github.com/evolutionaryscale/esm):** ESM Cambrian creates representations of the underlying biology of proteins.
+- **[ESMC](https://github.com/evolutionaryscale/esm):** ESM Cambrian creates representations of the underlying biology of proteins
 ```bibtex
 @misc{esm2024cambrian,
   author = {{ESM Team}},
