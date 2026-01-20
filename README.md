@@ -3,9 +3,17 @@
 
 LINKER is a framework for modeling and explaining protein–ligand interactions by explicitly learning interactions between ligand functional groups and protein residues. The method integrates chemical knowledge, structural information, and deep learning to improve interpretability in structure-based drug discovery.
 
+
 ---
 
-## Overview
+## LINKER Overview
+
+<p align="center">
+  <img src="assets/LINKER_architecture.png" width="700"/>
+</p>
+
+
+## Codeflow Overview
 
 <p align="center">
   <img src="assets/LINKER_codeflow.png" width="700"/>
