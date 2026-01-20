@@ -68,3 +68,35 @@ Train the LINKER model on the prepared dataset and save checkpoints and logs.
 ```bash
 bash script/Run.sh
 ```
+
+## Acknowledgement
+
+- **[PLIP](https://github.com/pharmai/plip):** Protein-Ligand Interaction Profiler (PLIP)
+```bibtex
+@article{salentin2015plip,
+  title={PLIP: fully automated protein--ligand interaction profiler},
+  author={Salentin, Sebastian and Schreiber, Sven and Haupt, V Joachim and Adasme, Melissa F and Schroeder, Michael},
+  journal={Nucleic acids research},
+  volume={43},
+  number={W1},
+  pages={W443--W447},
+  year={2015},
+  publisher={Oxford University Press}
+}
+```
+
+- **[pyCheckmol](https://github.com/jeffrichardchemistry/pyCheckmol):** Application for detecting functional groups of a molecules
+
+- **[ESMC](https://github.com/evolutionaryscale/esm):** ESM Cambrian creates representations of the underlying biology of proteins.
+```bibtex
+@misc{esm2024cambrian,
+  author = {{ESM Team}},
+  title = {ESM Cambrian: Revealing the mysteries of proteins with unsupervised learning},
+  year = {2024},
+  publisher = {EvolutionaryScale Website},
+  url = {https://evolutionaryscale.ai/blog/esm-cambrian},
+  urldate = {2024-12-04}
+}
+```
+
+
