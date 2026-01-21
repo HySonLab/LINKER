@@ -151,5 +151,5 @@ if __name__ == "__main__":
     optimizer = torch.optim.Adam(model.parameters(), lr=2e-5)
     criterion = FocalLoss(alpha=0.85, gamma=1, reduction='none')
 
-    train_model(model, train_loader, val_loader, optimizer, criterion, device, num_epochs=20, save_path='checkpoint/best_model.pt')
+    train_model(model, train_loader, val_loader, optimizer, criterion, device, num_epochs=20, save_path='checkpoints/best_model.pt')
     test_and_save_logits(model, test_loader, device, save_dir='evaluation/best_logits')

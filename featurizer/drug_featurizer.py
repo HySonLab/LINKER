@@ -140,9 +140,9 @@ def load_mol_and_convert_to_graph(mol_path):
     return mol_to_graph(mol, atom2fg_mask)
 
 # -----------------------------
-# Main Class
+# BindingDB
 # -----------------------------
-class DrugFeaturizer:
+class BindingDBDrugFeaturizer:
     def __init__(self, input_dir, output_dir):
         self.input_dir = input_dir
         self.output_dir = output_dir
@@ -220,6 +220,68 @@ class DrugFeaturizer:
             if not success:
                 wrong_files.append(idx)
         print("Done processing all files. Wrong indices:", wrong_files)
+        
+        
+# -----------------------------
+# PDBBind
+# -----------------------------
+class PDBBindDrugFeaturizer:
+    def __init__(self, input_dir, output_dir):
+        self.input_dir = input_dir
+        self.output_dir = output_dir
+        os.makedirs(os.path.join(output_dir, 'label'), exist_ok=True)
+        os.makedirs(os.path.join(output_dir, 'fg_instance'), exist_ok=True)
+        os.makedirs(os.path.join(output_dir, 'ligand_graph'), exist_ok=True)
+
+    def process_file(self, file_path):
+        sample = pkl.load(open(file_path, 'rb'))
+        print(file_path)
+        ligand_path = sample['mol_path']
+        mol = Chem.MolFromMolFile(ligand_path, sanitize=False)
+        # Create interaction labels
+        label = sample['interactions']
+        
+        protein_name = sample['protein_name']
+        # Functional groups
+        cm = CheckMol()
+        res = cm.functionalGroups(file=ligand_path, justFGcode=False, returnDataframe=True)
+        if len(res) == 0:
+            print(f"[ERROR] No functional groups for {protein_name}")
+            return False
+
+        fg_node_map, fg_type_list, fg_indices = build_fg_info(res, mol)
+
+        # Build Label_fg
+        Label_plip = torch.tensor(label, dtype=torch.float)
+        num_fg, num_res, num_types = len(fg_node_map), Label_plip.size(1), Label_plip.size(2)
+        Label_fg = torch.zeros((num_fg, num_res, num_types), dtype=torch.float)
+        for i, atom_ids in enumerate(fg_node_map):
+            if len(atom_ids) == 0:
+                continue
+            idx_tensor = torch.tensor(atom_ids, dtype=torch.long)
+            Label_fg[i] = Label_plip[idx_tensor].max(dim=0).values
+        # Save outputs
+        torch.save(Label_fg, os.path.join(self.output_dir, 'label', f'{protein_name}.pt'))
+        with open(os.path.join(self.output_dir, 'fg_instance', f'{protein_name}.pkl'), 'wb') as f:
+            pkl.dump({'fg_node_map': fg_node_map, 'fg_type_list': fg_type_list, 'fg_indices': fg_indices}, f)
+
+        # Save ligand graph
+        graph = load_mol_and_convert_to_graph(ligand_path)
+        torch.save(graph, os.path.join(self.output_dir, 'ligand_graph', f'{protein_name}.pt'))
+
+        return True
+
+    def process_all(self):
+        files = glob(os.path.join(self.input_dir, '*.pkl'))
+        wrong_files = []
+        for idx, file_path in enumerate(files):
+            print(f'[{idx+1}/{len(files)}] Processing: {file_path}')
+            success = self.process_file(file_path)
+            if not success:
+                wrong_files.append(idx)
+        print("Done processing all files. Wrong indices:", wrong_files)
+        
+        
 
 # -----------------------------
 # Main CLI
@@ -230,5 +292,5 @@ if __name__ == "__main__":
     parser.add_argument("--output_dir", type=str, required=True, help="Output directory for features")
     args = parser.parse_args()
 
-    featurizer = DrugFeaturizer(args.input_dir, args.output_dir)
+    featurizer = PDBBindDrugFeaturizer(args.input_dir, args.output_dir)
     featurizer.process_all()

@@ -52,6 +52,14 @@ def unscale_affinity(x_scaled, min_val, max_val):
 class LINKER_Dataloader(Dataset):
     def __init__(self, dataframe_path, split, protein_dir, fg_info_dir, graph_dir, label_dir):
         df = pd.read_csv(dataframe_path)
+        
+        ######
+        protein_list = [os.path.split(x)[1].split('.')[0] for x in glob('/home/phuc.phamhuythienai@gmail.com/Desktop/ExplainabilityInteraction/github/LINKER/data/PDBBind_PKL/*')]
+        df_filtered = df[df['protein'].isin(protein_list)]
+        df = df_filtered
+        ######
+        
+        
         self.protein_dir = protein_dir
         self.fg_info_dir = fg_info_dir
         self.graph_dir = graph_dir
@@ -149,11 +157,11 @@ class BindingAffinityPrediction_Dataset(Dataset):
         return sample
 
 def collate_fn_binding_affinity(batch):
-    # Mỗi phần tử trong batch là 1 dict
+    # Each element in the batch is a dictionary.
     protein_names = [item['protein_name'] for item in batch]
     values = torch.tensor([item['value'] for item in batch], dtype=torch.float32)
 
-    # Padding các tensor biến động theo chiều 0 (FG, prot_ctx, ligand_ctx,...)
+    # Padding tensors that vary along dimension 0 (FG, prot_ctx, ligand_ctx, ...)
     fg_embedded = pad_sequence([item['fg_embedded'] for item in batch], batch_first=True)
     fg_mask = pad_sequence([item['fg_mask'] for item in batch], batch_first=True)
 
@@ -166,7 +174,7 @@ def collate_fn_binding_affinity(batch):
     ligand_output_ark = pad_sequence([item['ligand_output_ark'] for item in batch], batch_first=True)
 
 
-    # Giả sử complex_labels là list các tensor [F_i, R_i, C]
+    # Assume complex_labels is a list of tensors with shape [F_i, R_i, C]
     max_f = max([item['logits'].shape[0] for item in batch])
     max_r = max([item['logits'].shape[1] for item in batch])
 
@@ -204,7 +212,7 @@ def main(args):
         dataset,
         batch_size=args.batch_size,
         shuffle=True,
-        collate_fn=collate_fn
+        collate_fn=collate_fn_LINKER
     )
 
     for names,prot_tensors, prot_masks, batched_graph, fg_indices_tensor, fg_type_tensor,padded_labels,padded_label_masks, values in train_loader:
