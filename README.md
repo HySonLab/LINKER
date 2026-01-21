@@ -3,6 +3,11 @@
 
 LINKER is a framework for modeling and explaining protein–ligand interactions by explicitly learning interactions between ligand functional groups and protein residues. The method integrates chemical knowledge, structural information, and deep learning to improve interpretability in structure-based drug discovery.
 
+Preliminary versions of this work were presented at NeurIPS 2025 workshops:
+- AI for Science: https://openreview.net/pdf?id=LsDdZUSVso 
+- Multi-modal Foundation Models and Large Language Models for Life Sciences: https://openreview.net/pdf?id=En4Q41ZA3T
+- Machine Learning and the Physical Sciences: https://ml4physicalsciences.github.io/2025/files/NeurIPS_ML4PS_2025_102.pdf 
+
 
 ---
 
