@@ -13,7 +13,7 @@ LINKER is a framework for modeling and explaining protein–ligand interactions 
 </p>
 
 
-## LINKER Codeflow 
+## Codeflow 
 
 <p align="center">
   <img src="assets/LINKER_codeflow.png" width="700"/>
