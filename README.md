@@ -58,7 +58,7 @@ We use publicly available protein–ligand complex datasets:
     ├────── ligands/
     ├────── proteins/
     ├────── ....
-    ├────── LP_PDBBind
+    ├────── LP_PDBBind.csv
     ├─ dataloader/
     ├─ ...
   ```
