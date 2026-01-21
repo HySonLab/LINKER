@@ -38,11 +38,43 @@ Please make sure these tools are installed and accessible in your environment be
 
 We use publicly available protein–ligand complex datasets:
 - **Leak-Proof PDBBind (LP-PDBBind)**  
-  https://github.com/THGLab/LP-PDBBind
 
+  Repository: https://github.com/THGLab/LP-PDBBind
+
+  First, clone the LP-PDBBind repository into the data/ directory:
+  
+
+  Next, download the processed data files from Zenodo: https://zenodo.org/records/18323765
+
+  Place them into the data/LP-PDBBind directory and extract the downloaded files.
+
+  After completing the above steps, the directory structure should look like this:
+
+  ```text
+  LINKER/
+    ├─ data/
+    ├─── LP_PDBBind/
+    ├────── complexes/
+    ├────── ligands/
+    ├────── proteins/
+    ├────── ....
+    ├────── LP_PDBBind
+    ├─ dataloader/
+    ├─ ...
+  ```
 - **BindingDB 3D Complexes**  
-  https://www.bindingdb.org/rwd/data/surflex/surflex.tar
-
+  Please download the dataset from: https://www.bindingdb.org/rwd/data/surflex/surflex.tar
+  Then extract it into your data/BindingDB directory. After completing the above steps, the directory structure should look like this:
+  ```text
+  LINKER/
+    ├─ data/
+    ├─── BindingDB/
+    ├────── 1A4H_GDM/
+    ├────── 1A9U_SB2/
+    ├────── ....
+    ├─ dataloader/
+    ├─ ...
+  ```
 ---
 
 ## Pipeline
