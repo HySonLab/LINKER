@@ -79,8 +79,6 @@ class FINGER_ID(nn.Module):
         # Step 3: static FG embedding + positional FG embedding
         self.static_fg_embedding = nn.Embedding(num_fg_types, fg_embed_dim)
         self.pos_embedding = nn.Embedding(max_tokens, pos_embed_dim)  # up to 64 FG per mol
-        # Linear layer for node pooled FG embedding
-        self.fg_node_pool_proj = nn.Linear(hidden_dim, hidden_dim)
 
         # Step 5: fuse [static_emb, pos_emb, node_pool_emb, global_emb]
         fused_dim = fg_embed_dim + pos_embed_dim + hidden_dim + hidden_dim
@@ -133,12 +131,9 @@ class FINGER_ID(nn.Module):
         fg_node_repr = torch.stack(fg_node_repr, dim=0)          # [B, F_max, hidden_dim]
         fg_valid_mask = (torch.stack(fg_valid_mask, dim=0) > 0)    # [B, F_max] boolean mask
 
-        # Step 4b: Project node-level FG representations
-        fg_node_proj = self.fg_node_pool_proj(fg_node_repr)       # [B, F_max, hidden_dim]
-
-        # Step 5: Fuse static + pos + node_proj + global
+        # Step 5: Fuse static + pos + fg_node_repr + global
         global_expanded = global_emb.unsqueeze(1).expand(-1, F_max, -1)  # [B, F_max, hidden_dim]
-        fg_fused = torch.cat([fg_static, fg_pos, fg_node_proj, global_expanded], dim=-1)  # [B, F_max, fused_dim]
+        fg_fused = torch.cat([fg_static, fg_pos, fg_node_repr, global_expanded], dim=-1)  # [B, F_max, fused_dim]
         fg_fused = self.fuse_fg(fg_fused)  # [B, F_max, hidden_dim]
         
         # print("fg_type_tensor: ",fg_type_tensor)
