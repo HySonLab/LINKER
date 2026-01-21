@@ -37,25 +37,32 @@ Please make sure these tools are installed and accessible in your environment be
 ## Datasets
 
 We use publicly available protein–ligand complex datasets:
+- **Leak-Proof PDBBind (LP-PDBBind)**  
+  https://github.com/THGLab/LP-PDBBind
 
 - **BindingDB 3D Complexes**  
   https://www.bindingdb.org/rwd/data/surflex/surflex.tar
-
-- **Leak-Proof PDBBind (LP-PDBBind)**  
-  https://github.com/THGLab/LP-PDBBind
 
 ---
 
 ## Pipeline
 
 ### 1. Preprocessing 
+
 Preprocess raw BindingDB 3D complexes, including structure cleaning and filtering.
+```bash
+bash script/PDBBindPreprocessing.sh
+```
+
+
+Preprocess the PDBBind dataset and split it according to LP_PDBBind.
 ```bash
 bash script/BindingDBPreprocessing.sh
 ```
 ### 2. Featurizer 
 Extract chemical and structural features from processed protein–ligand complexes, including functional group annotations and residue-level representations.
 ```bash
+bash script/PDBBindFeaturizer.sh
 bash script/BindingDBFeaturizer.sh
 ```
 ### 3. Dataloader 
@@ -64,11 +71,14 @@ Construct datasets and dataloaders with batching, masking, and padding strategie
 bash script/Dataloader.sh
 ```
 ### 4. Run 
-Train the LINKER model on the prepared dataset and save checkpoints and logs.
+Train the **LINKER** model on the prepared dataset and save checkpoints:
 ```bash
-bash script/Run.sh
+bash script/Run_LINKER.sh
 ```
-
+Train the **Binding Affinity** model on the pretrained features and save checkpoints:
+```bash
+bash script/Run_Predictor.sh
+```
 ## Acknowledgement
 
 - **[PLIP](https://github.com/pharmai/plip):** Protein-Ligand Interaction Profiler (PLIP)
