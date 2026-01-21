@@ -146,4 +146,17 @@ bash script/Run_Predictor.sh
 }
 ```
 
+## If our work is useful, please cite it!
+
+```bibtex
+@inproceedings{
+pham2025linker,
+title={{LINKER}: Learning Interactions Between Functional Groups and Residues With Chemical Knowledge-Enhanced Reasoning and Explainability},
+author={Phuc Pham and Viet Thanh Duy Nguyen and Truong-Son Hy},
+booktitle={NeurIPS 2025 AI for Science Workshop},
+year={2025},
+url={https://openreview.net/forum?id=LsDdZUSVso}
+}
+```
+
 
