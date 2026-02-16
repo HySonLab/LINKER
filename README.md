@@ -37,6 +37,10 @@ LINKER relies on the following external tools and libraries:
 
 Please make sure these tools are installed and accessible in your environment before running the pipeline.
 
+
+---
+##  Self-contained Environment Setup
+conda env create -f environment.yml
 ---
 
 ## Datasets
