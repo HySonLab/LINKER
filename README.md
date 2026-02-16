@@ -40,7 +40,9 @@ Please make sure these tools are installed and accessible in your environment be
 
 ---
 ##  Self-contained Environment Setup
+```bash
 conda env create -f environment.yml
+```
 ---
 
 ## Datasets
