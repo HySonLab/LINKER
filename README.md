@@ -1,4 +1,3 @@
-
 # LINKER: Learning Interactions Between Functional Groups and Residues with Chemical Knowledge-Enhanced Reasoning and Explainability
 
 LINKER is a framework for modeling and explaining protein–ligand interactions by explicitly learning interactions between ligand functional groups and protein residues. The method integrates chemical knowledge, structural information, and deep learning to improve interpretability in structure-based drug discovery.
@@ -26,23 +25,38 @@ Preliminary versions of this work were presented at NeurIPS 2025 workshops:
 
 ---
 
-## Dependencies
+## Environment Setup
 
-LINKER relies on the following external tools and libraries:
+First, create the Conda environment required to run **LINKER**.  
+This will install all Python libraries and core dependencies needed for the pipeline.
 
-- **PLIP** – Protein–Ligand Interaction Profiler  
-- **pyCheckmol** – Functional group detection  
-- **Open Babel (obabel)** – Molecular file conversion and processing  
-- **ESMC** – Protein language model embeddings  
-
-Please make sure these tools are installed and accessible in your environment before running the pipeline.
-
-
----
-##  Self-contained Environment Setup
 ```bash
 conda env create -f environment.yml
+conda activate linker
 ```
+
+If you prefer using `pip` instead of Conda, you can install the required packages with:
+
+```bash
+pip install -r requirements.txt
+```
+
+## External Dependencies
+
+In addition to the Python environment above, LINKER relies on several external tools that must be installed separately. Since each dependency has its own installation procedure, **please install them individually** by following the instructions provided in the `README.md` file inside each corresponding folder.
+
+### Required Tools
+
+- **PLIP** – Protein–Ligand Interaction Profiler  
+- **pyCheckmol** – Functional group detection
+
+### Installation Instructions
+
+1. Navigate to each dependency’s folder.
+2. Open the `README.md` file inside that folder.
+3. Follow the installation steps provided there.
+4. Verify that the tool is correctly installed and accessible in your environment
+
 ---
 
 ## Datasets
@@ -164,5 +178,3 @@ year={2025},
 url={https://openreview.net/forum?id=LsDdZUSVso}
 }
 ```
-
-
