@@ -1,0 +1,5 @@
+data/*
+checkpoints/*
+datapreprocessed/
+evaluation/best_logits
+evaluation/extracted_features
