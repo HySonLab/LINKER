@@ -225,7 +225,7 @@ def main(args):
         print("padded_labels:", padded_labels)
         print("padded_label_masks:", padded_label_masks)
         print("values:", values)
-        break  # chỉ in phần tử đầu tiên
+        break  # print first element
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Train DataLoader for PLIP dataset")
