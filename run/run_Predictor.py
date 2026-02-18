@@ -98,7 +98,7 @@ def parse_args():
     parser.add_argument(
         "--beta_value",
         type=float,
-        default=1.0,
+        default=2.0,
         help="Weight for alignment loss",
     )
     return parser.parse_args()
