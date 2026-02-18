@@ -96,7 +96,7 @@ def parse_args():
         help="Path to extracted feature directory",
     )
     parser.add_argument(
-        "--lambda_value",
+        "--beta_value",
         type=float,
         default=1.0,
         help="Weight for alignment loss",
@@ -124,6 +124,6 @@ if __name__ == "__main__":
     alignloss = LatentAlignmentLoss(tau=0.1, uniform_weight=0.1).cuda()
     optimizer = torch.optim.Adam(model.parameters(), lr=2e-5)
 
-    train_model(model, train_loader, test_loader, regressionloss, alignloss, optimizer, device, num_epochs=80, lambda_value = args.lambda_value, save_path="checkpoints/best_predictor.pt")
+    train_model(model, train_loader, test_loader, regressionloss, alignloss, optimizer, device, num_epochs=80, lambda_value = args.beta_value, save_path="checkpoints/best_predictor.pt")
     test_model(model, test_loader, regressionloss, alignloss, device, model_path="checkpoints/best_predictor.pt")
 
