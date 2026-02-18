@@ -73,7 +73,7 @@ def train_model(model, train_loader, val_loader, regression, alignloss, optimize
         if val_rmse < best_val_rmse:
             best_val_rmse = val_rmse
             torch.save(model.state_dict(), save_path)
-            print("✅ Best model saved!")
+            print("Best model saved!")
         print(f"Train RMSE: {train_rmse:.4f} | Val RMSE: {val_rmse:.4f}")
         print(f'Best val: ', best_val_rmse)
 
@@ -83,7 +83,7 @@ def test_model(model, test_loader, regression, alignloss, device, model_path="be
     model.load_state_dict(torch.load(model_path))
     model.eval()
     test_rmse = evaluate(model, test_loader, regression, alignloss, device)
-    print(f"🎯 Test RMSE: {test_rmse:.4f}")
+    print(f"Test RMSE: {test_rmse:.4f}")
     return test_rmse
 
 
