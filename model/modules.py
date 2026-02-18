@@ -451,7 +451,7 @@ class LINKER(nn.Module):
         self.unet_pair         = PairwiseUNet(
             embedding_dim=embedding_dim,
             num_classes=7,
-            base_channels=256  # có thể điều chỉnh
+            base_channels=256 
         )
         self.finger_id      = FINGER_ID(num_fg_types = num_fg_types)
     def forward(self, prot_vector, prot_mask, batched_graph, fg_indices_tensor, fg_type_tensor):
