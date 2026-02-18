@@ -9,4 +9,4 @@ python run/run_save_state.py \
 
 python run/run_Predictor.py \
         --base_path evaluation/extracted_features \
-        --lambda_value 2
+        --beta_value 2
