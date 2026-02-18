@@ -85,8 +85,8 @@ class LatentAlignmentLoss(nn.Module):
         pos_idx = []
         for i in range(B):
             dist = torch.norm(scores[i] - scores, dim=-1)  # [B]
-            dist[i] = float("inf")  # bỏ chính nó
-            # top-k index (gần nhất)
+            dist[i] = float("inf")  # remove itself
+            # top-k nearest index
             topk_idx = torch.topk(dist, k=min(self.topk, B-1), largest=False).indices
             # random chọn 1 trong top-k
             j = random.choice(topk_idx.tolist())
