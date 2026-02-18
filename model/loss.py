@@ -65,10 +65,10 @@ class FocalLoss(nn.Module):
 
 class LatentAlignmentLoss(nn.Module):
     """
-    InfoNCE + Uniformity loss trên latent vector.
+    InfoNCE + Uniformity loss on latent vector.
     Inputs:
-        - z: [B, D] latent vector đã normalize
-        - binding_scores: [B, score_dim] dùng để tìm positive pair
+        - z: [B, D] latent vector normalized
+        - binding_scores: [B, score_dim] used to find positive pair
     """
     def __init__(self, tau=0.1, uniform_weight=0.1, topk=5):
         super().__init__()
@@ -78,7 +78,7 @@ class LatentAlignmentLoss(nn.Module):
 
     def find_positive_indices(self, scores: torch.Tensor):
         """
-        Cho mỗi sample, chọn positive index trong top-k gần nhất.
+        For each sample, choose positive index within nearest top-k.
         scores: [B, score_dim]
         """
         B = scores.size(0)
