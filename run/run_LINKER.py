@@ -76,9 +76,9 @@ def train_model(model, train_loader, val_loader, optimizer, criterion, device, n
             best_val_loss = val_loss
             best_epoch = epoch
             torch.save(model.state_dict(), save_path)
-            print(f"✔️ Saved new best model at epoch {epoch+1} with val loss {val_loss:.4f}")
+            print(f"Saved new best model at epoch {epoch+1} with val loss {val_loss:.4f}")
 
-    print(f"✅ Training complete. Best epoch: {best_epoch+1} with Val Loss: {best_val_loss:.4f}")
+    print(f"Training complete. Best epoch: {best_epoch+1} with Val Loss: {best_val_loss:.4f}")
 
 def test_and_save_logits(model, test_loader, device, save_dir='./predictions'):
     model.eval()
