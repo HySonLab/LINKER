@@ -12,7 +12,7 @@ import networkx as nx
 from Bio import pairwise2
 from Bio.Align import substitution_matrices
 
-# --- Hàm tính Tanimoto ---
+# --- Tanimoto Calculation ---
 def tanimoto_calc(path1, path2):
     supplier1 = Chem.SDMolSupplier(path1, sanitize=False)
     supplier2 = Chem.SDMolSupplier(path2, sanitize=False)
@@ -23,7 +23,7 @@ def tanimoto_calc(path1, path2):
     fp2 = gen.GetFingerprint(mol2)
     return TanimotoSimilarity(fp1, fp2)
 
-# --- Hàm tính sequence identity ---
+# --- Sequence identity calculation ---
 blosum62 = substitution_matrices.load("BLOSUM62")
 def seq_identity(pair):
     id1, seq1, id2, seq2 = pair
@@ -37,7 +37,7 @@ def seq_identity(pair):
     identity = matches / len(aln.seqA)
     return {"ID1": id1,"ID2": id2,"identity": identity}
 
-# --- Hàm split cluster ---
+# --- Split cluster calculation ---
 def cluster_split(df_sequences, df_sim, threshold=0.5):
     df_filtered = df_sim[df_sim['identity']>threshold]
     G = nx.Graph()
@@ -56,7 +56,7 @@ def cluster_split(df_sequences, df_sim, threshold=0.5):
     })
     return df_clusters
 
-# --- Hàm assign split ---
+# --- Assign split function ---
 def assign_split(protein, train_ids, val_ids, test_ids):
     protein = protein.split('_')[0]
     if protein in train_ids:
