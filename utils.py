@@ -330,7 +330,7 @@ def group_similar_sequences(original_dct, pocket_mask_dct, functional_group_mask
 
 
 
-# Hàm lấy danh sách functional group theo vị trí nguyên tử
+# Get functional groups from atom
 def get_functional_group_list_by_atom(atom_number, df):
     atom_str = str(atom_number)
     filtered = df[df["Atom Position"].str.contains(rf'\b{atom_str}\b')]
@@ -377,21 +377,21 @@ def fill_empty_sets(functional_group_mask: dict, index_list: list, keys: str):
     d = functional_group_mask[keys]
     n = len(d)
     for idx in index_list:
-        # Bỏ qua nếu đã có giá trị
+        # Skip if it have value
         if d[idx]:
             continue
 
-        # Tìm gần nhất bên trái
+        # Find nearest on the left
         left = idx - 1
         while left >= 0 and len(d[left]) == 0:
             left -= 1
 
-        # Tìm gần nhất bên phải
+        # Find nearest on the right
         right = idx + 1
         while right < n and len(d[right]) == 0:
             right += 1
 
-        # Chọn gần nhất giữa trái và phải
+        # Choose the nearest neighbor from two sides
         left_dist = abs(idx - left) if left >= 0 and d[left] else float('inf')
         right_dist = abs(idx - right) if right < n and d[right] else float('inf')
         if left_dist <= right_dist and left_dist != float('inf'):
@@ -440,7 +440,7 @@ def extract_interaction(pdb_file, sdf_file, distance_cutoff=5.0):
                     pocket_residues.add((chain.id, residue.id[1], residue.resname))
                     if '@' not in residue_name:
                         residue_name = '@'
-                matching_indices = np.where(distances < distance_cutoff)[0] # index của ligand id, atom của protein
+                matching_indices = np.where(distances < distance_cutoff)[0] # index of ligand id, atom of protein
                 if len(matching_indices) > 0:
                     for indices in matching_indices:
                         functional_group_lst = get_functional_group_list_by_atom(indices, df)
