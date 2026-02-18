@@ -35,17 +35,17 @@ n = len(protein_names)
 for idx, protein_name in enumerate(protein_names):
     print(f"{protein_name} | progress: {(idx / n) * 100:.2f}%")
 
-    try:
-        data = torch.load(
-            f"evaluation/best_logits/{protein_name}.pt",  # TODO: fill path
-            weights_only=True
-        )
-        logits = data["logits"]
-        label = data["label"]
-        mask = data["mask"]
-    except Exception:
-        print(f"Skip {protein_name}")
-        continue
+    # try:
+    data = torch.load(
+        f"evaluation/best_logits/{protein_name}.pt",  # TODO: fill path
+        weights_only=True
+    )
+    logits = data["logits"]
+    label = data["label"]
+    mask = data["mask"]
+    # except Exception:
+    #     print(f"Skip {protein_name}")
+    #     continue
 
     # --------------------------------------------------
     # Shape normalization
