@@ -466,3 +466,125 @@ class LINKER(nn.Module):
         
         
         return logits.permute(0, 2, 1, 3)
+
+
+##### DTA Predictor ######
+class BindingHead(nn.Module):
+    def __init__(self, input_dim):
+        super().__init__()
+
+        self.fc1 = nn.Linear(input_dim, input_dim)
+        self.fc2 = nn.Linear(input_dim, input_dim // 2)
+        self.fc3 = nn.Linear(input_dim // 2, 1)
+        self.dropout = nn.Dropout(0.15)
+        self.norm = nn.LayerNorm(input_dim)
+
+    def forward(self, x):
+        h = self.norm(x)
+
+        # residual block
+        h = self.dropout(F.relu(self.fc1(h))) + x
+
+        h = F.relu(self.fc2(h))
+        out = self.fc3(h)
+
+        return out.squeeze(-1)  # [B]
+
+
+
+# =======================
+# Attention Pooling
+# =======================
+class AttentionPool(nn.Module):
+    def __init__(self, dim, dropout=0.1):
+        super().__init__()  
+        self.score = nn.Sequential(
+            nn.LayerNorm(dim),
+            nn.Linear(dim, dim // 2),
+            nn.Tanh(),
+            nn.Dropout(dropout),
+            nn.Linear(dim // 2, 1)
+        )
+
+    def forward(self, x, mask=None):
+        """
+        x:    [B, L, D]
+        mask: [B, L], True = valid token
+        """
+
+        attn_logits = self.score(x).squeeze(-1)  # [B, L]
+
+        if mask is not None:
+            mask = mask.bool()
+            attn_logits = attn_logits.masked_fill(~mask, -1e9)
+
+        attn = torch.softmax(attn_logits, dim=-1)
+
+        pooled = torch.sum(
+            x * attn.unsqueeze(-1),
+            dim=1
+        )
+        return pooled
+
+
+# =======================
+# Main Model
+# =======================
+class DTA_Predictor(nn.Module):
+    def __init__(self, num_fg_types=205, embedding_dim=960, num_heads=8):
+        super().__init__()
+
+        self.scat = SCAT(embedding_dim=embedding_dim, num_heads=num_heads)
+        self.finger_id = FINGER_ID(num_fg_types=num_fg_types)
+
+        # replace mean pooling
+        self.prot_pool = AttentionPool(embedding_dim)
+        self.lig_pool  = AttentionPool(embedding_dim)
+        # final predictor
+        self.mlp = BindingHead(input_dim=embedding_dim * 2)
+        
+    def forward(
+        self,
+        prot_vector,
+        prot_mask,
+        batched_graph,
+        fg_indices_tensor,
+        fg_type_tensor
+    ):
+        # =======================
+        # Ligand encoding
+        # =======================
+        fg_embedded, fg_mask = self.finger_id(
+            batched_graph,
+            fg_type_tensor,
+            fg_indices_tensor
+        )
+
+        # =======================
+        # Cross attention
+        # =======================
+        prot_out, lig_out = self.scat(
+            prot_vector,
+            prot_mask,
+            fg_embedded,
+            fg_mask
+        )
+
+        # =======================
+        # Attention pooling
+        # =======================
+        prot_emb = self.prot_pool(prot_out, prot_mask)
+        lig_emb  = self.lig_pool(lig_out, fg_mask)
+
+        # =======================
+        # Concatenate
+        # =======================
+        combined = torch.cat([prot_emb, lig_emb], dim=1)
+
+        # =======================
+        # Prediction
+        # =======================
+        pred = self.mlp(combined)
+
+        return pred
+
