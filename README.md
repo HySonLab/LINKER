@@ -101,7 +101,7 @@ We use publicly available protein–ligand complex datasets:
     ├─ ...
   ```
 
-- **Davis Dataset**
+- **Davis**
 
   Please download the dataset from: https://github.com/hkmztrk/DeepDTA/tree/master/data/davis
   Then extract it into your data/Davis directory. After completing the above steps, the directory structure should look like this:
@@ -109,8 +109,10 @@ We use publicly available protein–ligand complex datasets:
   LINKER/
     ├─ data/
     ├─── Davis/
-    ├────── 1A4H_GDM/
-    ├────── 1A9U_SB2/
+    ├────── folds/
+              ├─── test_fold_setting1.txt
+              ├─── train_fold_setting1.txt
+    ├────── Y
     ├────── ....
     ├─ dataloader/
     ├─ ...
