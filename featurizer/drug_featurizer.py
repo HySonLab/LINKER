@@ -6,7 +6,7 @@ import pickle as pkl
 from glob import glob
 from collections import defaultdict
 import ast
-
+import pandas as pd
 import numpy as np
 import torch
 from torch.nn.utils.rnn import pad_sequence
@@ -229,9 +229,9 @@ class PDBBindDrugFeaturizer:
     def __init__(self, input_dir, output_dir):
         self.input_dir = input_dir
         self.output_dir = output_dir
-        os.makedirs(os.path.join(output_dir, 'label'), exist_ok=True)
-        os.makedirs(os.path.join(output_dir, 'fg_instance'), exist_ok=True)
-        os.makedirs(os.path.join(output_dir, 'ligand_graph'), exist_ok=True)
+        os.makedirs(os.path.join(output_dir, 'label'),          exist_ok=True)
+        os.makedirs(os.path.join(output_dir, 'fg_instance'),    exist_ok=True)
+        os.makedirs(os.path.join(output_dir, 'ligand_graph'),   exist_ok=True)
 
     def process_file(self, file_path):
         sample = pkl.load(open(file_path, 'rb'))
@@ -281,7 +281,50 @@ class PDBBindDrugFeaturizer:
                 wrong_files.append(idx)
         print("Done processing all files. Wrong indices:", wrong_files)
         
-        
+
+# -----------------------------
+# Drug Target Affinity Prediction
+# -----------------------------
+class DTADrugFeaturizer:
+    def __init__(self, input_dir, output_dir, data_name = 'Davis'):
+        self.df         = pd.read_csv(os.path.join(input_dir, data_name, f'{data_name}_preprocessed.csv'))
+        self.drug_dir   = os.path.join(input_dir, data_name, 'drug_mol')
+        self.ligand_pairs = self.df[["ligand", "ligand_id"]].drop_duplicates()
+        self.output_dir = output_dir
+        os.makedirs(os.path.join(output_dir, 'fg_instance'),    exist_ok=True)
+        os.makedirs(os.path.join(output_dir, 'ligand_graph'),   exist_ok=True)
+
+    def process_file(self, file_path):
+        ligand_id = os.path.basename(file_path).replace('.sdf', '')
+        # Functional groups
+        cm = CheckMol()
+        mol = Chem.MolFromMolFile(file_path, sanitize=False)
+        res = cm.functionalGroups(file=file_path, justFGcode=False, returnDataframe=True)
+        if len(res) == 0:
+            print(f"[ERROR] No functional groups for {ligand_id}")
+            return False
+
+        fg_node_map, fg_type_list, fg_indices = build_fg_info(res, mol)
+        # Build Label_fg
+        with open(os.path.join(self.output_dir, 'fg_instance', f'{ligand_id}.pkl'), 'wb') as f:
+            pkl.dump({'fg_node_map': fg_node_map, 'fg_type_list': fg_type_list, 'fg_indices': fg_indices}, f)
+
+        # Save ligand graph
+        graph = load_mol_and_convert_to_graph(file_path)
+        torch.save(graph, os.path.join(self.output_dir, 'ligand_graph', f'{ligand_id}.pt'))
+        return True
+
+    def process_all(self):
+        files = glob(os.path.join(self.drug_dir, '*.sdf'))
+        wrong_files = []
+        for idx, file_path in enumerate(files):
+            print(f'[{idx+1}/{len(files)}] Processing: {file_path}')
+            success = self.process_file(file_path)
+            if not success:
+                wrong_files.append(idx)
+        print("Done processing all files. Wrong indices:", wrong_files)
+
+
 
 # -----------------------------
 # Main CLI
@@ -290,7 +333,15 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Featurize BindingDB/PDBBind pkl files")
     parser.add_argument("--input_dir", type=str, required=True, help="Input directory with pkl files")
     parser.add_argument("--output_dir", type=str, required=True, help="Output directory for features")
+    parser.add_argument("--data_name", type=str, required=False, help="Dataset name for DTA (e.g., Davis)", default="Davis")
     args = parser.parse_args()
 
-    featurizer = PDBBindDrugFeaturizer(args.input_dir, args.output_dir)
+
+    # featurizer = BindingDBDrugFeaturizer(args.input_dir, args.output_dir)
+    # featurizer.process_all()
+
+    # featurizer = PDBBindDrugFeaturizer(args.input_dir, args.output_dir)
+    # featurizer.process_all()
+
+    featurizer = DTADrugFeaturizer(args.input_dir, args.output_dir, args.data_name)
     featurizer.process_all()
