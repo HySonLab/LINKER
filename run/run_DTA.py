@@ -17,6 +17,7 @@ from tqdm import tqdm
 from scipy.stats import pearsonr
 from lifelines.utils import concordance_index
 from sklearn.metrics import r2_score
+from evaluation.emetrics import *
 
 def parse_args():
     parser = argparse.ArgumentParser()
@@ -87,7 +88,8 @@ def evaluate(model, loader, device, criterion):
         all_preds.numpy(),
         all_labels.numpy()
     )
-    return avg_loss, rmse.item(), corr[0], ci, r2
+    r2_m = get_rm2(all_labels.numpy(), all_preds.numpy())
+    return avg_loss, rmse.item(), corr[0], ci, r2, r2_m
 
 def test(model, loader, device):
     model.eval()
@@ -116,7 +118,8 @@ def test(model, loader, device):
     rmse = torch.sqrt(((all_preds - all_labels) ** 2).mean())
     corr, p_value = pearsonr(all_preds, all_labels)
     ci = concordance_index(all_labels, all_preds)
-    return rmse.item(), corr[0], ci
+    r2_m = get_rm2(all_labels.numpy(), all_preds.numpy())
+    return rmse.item(), corr[0], ci, r2_m
 
 def test_ensemble(model_paths, loader, device):
 
@@ -162,7 +165,8 @@ def test_ensemble(model_paths, loader, device):
     rmse = torch.sqrt(((final_preds - final_labels) ** 2).mean())
     corr, p_value = pearsonr(final_preds, final_labels)
     ci = concordance_index(final_labels.numpy(), final_preds.numpy())
-    return rmse.item(), corr, ci
+    r2_m = get_rm2(final_labels.numpy(), final_preds.numpy())
+    return rmse.item(), corr, ci, r2_m
 
 
 if __name__ == "__main__":
@@ -176,14 +180,16 @@ if __name__ == "__main__":
     batch_size   = int(args.batch_size)
     
     # ===== Model =====
-    best_val_loss   = float("inf")
-    num_epochs      = 100
+    
+    num_epochs      = 150
     mseLoss         = nn.MSELoss()
+    rankingLoss     = RankingLoss()
+    rm2Loss         = RM2Loss()
     folds = ["Train_1", "Train_2", "Train_3", "Train_4", "Train_5"]
 
     timestamp = datetime.now().strftime(f"%Y%m%d_%H%M%S_dta_{seed_num}")
 
-    log_dir = os.path.join("logs", f"{args.exp_name}_{timestamp}")
+    log_dir = os.path.join("logs_final", f"{args.exp_name}_{timestamp}")
     os.makedirs(log_dir, exist_ok=True)
 
     log_file = os.path.join(log_dir, "train.log")
@@ -195,23 +201,27 @@ if __name__ == "__main__":
             f.write(msg + "\n")
 
     config_path = os.path.join(log_dir, "config.json")
-
+    log('mse_loss + 0.05 * ranking_loss + 0.05 * rm2_loss, lr 5e-4, batch 64')
+    log(f"best ci + rm2")
     with open(config_path, "w") as f:
         json.dump(vars(args), f, indent=4)
 
     fold_rmses = []
-    early_stop_patience = 15
+    early_stop_patience = 20
+    
     for val_fold in folds:
         log(f"\n===== Fold: {val_fold} =====")
+        model = FINGER_DTA().to(device)   # ✅ reset
+        # checkpoint = torch.load(resume_path, map_location=device, weights_only=False)
+        # # ✅ load model
+        # model.load_state_dict(checkpoint["model_state_dict"])
 
-        model = DTA_Predictor().to(device)   # ✅ reset
-        
-        # optimizer
-        
-        
+        start_epoch = 0
+        best_val_ci_rm2 = float("-inf")
+
         optimizer = torch.optim.AdamW(
             model.parameters(),
-            lr=5e-5,
+            lr=5e-4,
             weight_decay=1e-4
         )
 
@@ -221,9 +231,6 @@ if __name__ == "__main__":
             factor=0.5,
             patience=5
         )
-
-
-        best_val_r2 = float("-inf")
 
         train_df = df[(df["split"] != val_fold) & (df["split"].str.contains("Train"))]
         val_df   = df[df["split"] == val_fold]
@@ -242,7 +249,7 @@ if __name__ == "__main__":
 
             model.train()
             train_loss = 0
-
+            train_mse  = 0
             for batch in tqdm(train_loader):
                 
                 prot_tensors, prot_masks, batched_graph, fg_indices_tensor, fg_type_tensor, labels = batch
@@ -256,37 +263,39 @@ if __name__ == "__main__":
                 fg_type_tensor      = fg_type_tensor.to(device)
                 labels              = labels.to(device).float()
                 preds               = model(prot_tensors, prot_masks, batched_graph, fg_indices_tensor, fg_type_tensor).squeeze(-1)
-
+           
+                mse_loss        = mseLoss(preds, labels) 
+                ranking_loss    = rankingLoss(preds, labels) 
                 
-                mse_loss   = mseLoss(preds, labels)
-                loss = mse_loss
-
+                rm2_loss        = rm2Loss(preds, labels) 
+                loss            = mse_loss + 0.05 * ranking_loss + 0.05 * rm2_loss
                 loss.backward()
-                torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=3.0)
+                # torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=3.0)
                 optimizer.step()
-
                 train_loss += loss.item()
 
             avg_train_loss = train_loss / (len(train_loader) + 1e-10)
 
             # ✅ VALIDATE
-            avg_val_loss, rmse, corr, ci, r2 = evaluate(model, val_loader, device, mseLoss)
-            print(avg_val_loss, rmse, corr, ci)  
-            # scheduler CI
-            scheduler.step(ci)
-            log(f"Epoch {epoch+1} | Train {avg_train_loss:.4f} | Val {avg_val_loss:.4f} | RMSE {rmse:.4f} | R {corr:.4f} | CI {ci:.4f} | R2 {r2:.4f}")
-
+            avg_val_loss, rmse, corr, ci, r2, rm2 = evaluate(model, val_loader, device, mseLoss)
+            print(avg_val_loss, rmse, corr, ci, r2, rm2)  
+            # scheduler ci + rm2
+            
+            scheduler.step(ci + rm2)
+            log(f"Epoch {epoch+1} | Train {avg_train_loss:.4f} | Val {avg_val_loss:.4f} | RMSE {rmse:.4f} | R {corr:.4f} | CI {ci:.4f} | R2 {r2:.4f} | R2m {rm2:.4f}")
+            
             # ✅ SAVE BEST
-            if best_val_ci < ci:
-                best_val_ci   = ci
+            if best_val_ci_rm2 < (ci + rm2):
+                best_val_ci_rm2   = (ci + rm2)
 
                 save_path       = os.path.join(log_dir, f"best_model_{val_fold}.pth")
 
                 torch.save({
                     "model_state_dict": model.state_dict(),
+                    "optimizer_state_dict": optimizer.state_dict(),
+                    "scheduler_state_dict": scheduler.state_dict(),
                     "epoch": epoch,
-                    "val_loss": avg_val_loss,
-                    "rmse": rmse
+                    "best_val_ci_rm2": best_val_ci_rm2,
                 }, save_path)
                 epochs_no_improve = 0   # ✅ reset counter
                 log(f"✅ Saved BEST {val_fold}")
@@ -298,27 +307,4 @@ if __name__ == "__main__":
                 log(f"⛔ Early stopping triggered at epoch {epoch+1}")
                 break
 
-        fold_rmses.append(best_val_loss)
-    
-    test_df = df[df["split"] == "Test"]
-    test_dataset = DTA_Dataloader(
-        test_df,
-        args.protein_emb_path,
-        args.fg_instance_path,
-        args.ligand_graph_path
-    )
-
-    test_loader = DataLoader(
-        test_dataset,
-        batch_size=batch_size,
-        shuffle=False,
-        collate_fn=collate_fn_DTA
-    )
-    print(log_dir)
-    model_paths = [
-        os.path.join(log_dir, f"best_model_{fold}.pth")
-        for fold in folds
-    ]
-
-    rmse, corr, ci = test_ensemble(model_paths, test_loader, device)
-    log(f"\n TEST ENSEMBLE RMSE: | RMSE {rmse:.4f} | R {corr:.4f} | CI {ci:.4f}")
+        fold_rmses.append(best_val_ci_rm2)
