@@ -116,3 +116,85 @@ class LatentAlignmentLoss(nn.Module):
         L_info = self.infonce_loss(z, pos_indices, tau=self.tau)
         L_unif = self.uniformity_loss(z)
         return L_info + self.uniform_weight * L_unif
+
+class RankingLoss(nn.Module):
+    def __init__(self):
+        super().__init__()
+
+    def forward(self, pred, y):
+        pred_i = pred.unsqueeze(1)
+        pred_j = pred.unsqueeze(0)
+
+        y_i = y.unsqueeze(1)
+        y_j = y.unsqueeze(0)
+
+        diff = y_i - y_j
+
+        mask = torch.abs(diff) > 1e-6
+
+        if mask.sum() == 0:
+            return torch.tensor(0.0, device=pred.device)
+
+        sign = torch.sign(diff[mask])
+        pred_diff = (pred_i - pred_j)[mask]
+
+        pred_diff = torch.clamp(pred_diff, -10, 10)
+
+        loss = F.softplus(-sign * pred_diff)
+
+        return loss.mean()
+
+
+
+class RM2Loss(nn.Module):
+    def __init__(self, eps=1e-8):
+        super().__init__()
+        self.eps = eps
+
+    def forward(self, pred, target):
+
+        pred = pred.view(-1)
+        target = target.view(-1)
+
+        pred_mean = pred.mean()
+        target_mean = target.mean()
+
+        # R² (squared Pearson correlation)
+        num = torch.sum(
+            (pred - pred_mean) *
+            (target - target_mean)
+        ) ** 2
+
+        den = (
+            torch.sum((pred - pred_mean) ** 2) *
+            torch.sum((target - target_mean) ** 2)
+            + self.eps
+        )
+
+        r2 = num / den
+
+        # R0²
+        k = torch.sum(pred * target) / (
+            torch.sum(pred ** 2) + self.eps
+        )
+
+        sse0 = torch.sum(
+            (target - k * pred) ** 2
+        )
+
+        sst = torch.sum(
+            (target - target_mean) ** 2
+        ) + self.eps
+
+        r02 = 1 - sse0 / sst
+
+        # Modified RM²
+        diff = r2 - r02
+
+        rm2 = r2 * (
+            1 - diff.pow(2)
+        )
+
+        loss = 1 - rm2
+
+        return loss

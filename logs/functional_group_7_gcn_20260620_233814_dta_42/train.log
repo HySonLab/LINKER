@@ -1,0 +1,538 @@
+mse_loss + 0.05 * ranking_loss + 0.05 * rm2_loss, lr 5e-4, batch 64
+best ci + rm2
+
+===== Fold: Train_1 =====
+Epoch 1 | Train 0.9716 | Val 0.9228 | RMSE 0.9621 | R 0.5155 | CI 0.7660 | R2 -2.8059 | R2m 0.2623
+✅ Saved BEST Train_1
+Epoch 2 | Train 0.6873 | Val 0.7997 | RMSE 0.8967 | R 0.5756 | CI 0.7780 | R2 -1.1131 | R2m 0.3168
+✅ Saved BEST Train_1
+Epoch 3 | Train 0.6219 | Val 0.5010 | RMSE 0.7099 | R 0.6114 | CI 0.7924 | R2 -0.9307 | R2m 0.3601
+✅ Saved BEST Train_1
+Epoch 4 | Train 0.5841 | Val 0.4675 | RMSE 0.6855 | R 0.6517 | CI 0.8053 | R2 -0.1894 | R2m 0.4091
+✅ Saved BEST Train_1
+Epoch 5 | Train 0.5619 | Val 0.7513 | RMSE 0.8692 | R 0.6614 | CI 0.8160 | R2 -0.4573 | R2m 0.4089
+✅ Saved BEST Train_1
+Epoch 6 | Train 0.5176 | Val 0.7674 | RMSE 0.8780 | R 0.7050 | CI 0.8228 | R2 -0.2235 | R2m 0.4503
+✅ Saved BEST Train_1
+Epoch 7 | Train 0.4902 | Val 0.3912 | RMSE 0.6264 | R 0.7174 | CI 0.8299 | R2 0.1895 | R2m 0.4851
+✅ Saved BEST Train_1
+Epoch 8 | Train 0.4528 | Val 0.5851 | RMSE 0.7670 | R 0.7221 | CI 0.8364 | R2 0.1584 | R2m 0.4454
+Epoch 9 | Train 0.4375 | Val 0.4140 | RMSE 0.6445 | R 0.6972 | CI 0.8165 | R2 -0.2757 | R2m 0.4580
+Epoch 10 | Train 0.4238 | Val 0.4936 | RMSE 0.7030 | R 0.7449 | CI 0.8278 | R2 -0.2350 | R2m 0.5475
+✅ Saved BEST Train_1
+Epoch 11 | Train 0.4062 | Val 0.4108 | RMSE 0.6417 | R 0.7348 | CI 0.8312 | R2 -0.0265 | R2m 0.5397
+Epoch 12 | Train 0.3906 | Val 0.3448 | RMSE 0.5876 | R 0.7575 | CI 0.8400 | R2 0.3376 | R2m 0.5408
+✅ Saved BEST Train_1
+Epoch 13 | Train 0.3848 | Val 0.3992 | RMSE 0.6325 | R 0.7419 | CI 0.8319 | R2 0.0358 | R2m 0.5480
+Epoch 14 | Train 0.3717 | Val 0.3390 | RMSE 0.5833 | R 0.7642 | CI 0.8441 | R2 0.2347 | R2m 0.5650
+✅ Saved BEST Train_1
+Epoch 15 | Train 0.3686 | Val 0.4210 | RMSE 0.6493 | R 0.7665 | CI 0.8457 | R2 0.0346 | R2m 0.5785
+✅ Saved BEST Train_1
+Epoch 16 | Train 0.3614 | Val 0.4236 | RMSE 0.6517 | R 0.7755 | CI 0.8428 | R2 0.1997 | R2m 0.5964
+✅ Saved BEST Train_1
+Epoch 17 | Train 0.3626 | Val 0.3583 | RMSE 0.5995 | R 0.7575 | CI 0.8346 | R2 0.3126 | R2m 0.5545
+Epoch 18 | Train 0.3610 | Val 0.3600 | RMSE 0.6008 | R 0.7665 | CI 0.8475 | R2 0.3120 | R2m 0.5763
+Epoch 19 | Train 0.3411 | Val 0.3479 | RMSE 0.5913 | R 0.7662 | CI 0.8458 | R2 0.3892 | R2m 0.5487
+Epoch 20 | Train 0.3266 | Val 0.3861 | RMSE 0.6226 | R 0.7724 | CI 0.8525 | R2 0.3646 | R2m 0.5557
+Epoch 21 | Train 0.3278 | Val 0.5870 | RMSE 0.7669 | R 0.7766 | CI 0.8537 | R2 0.0098 | R2m 0.5968
+✅ Saved BEST Train_1
+Epoch 22 | Train 0.3291 | Val 0.3261 | RMSE 0.5707 | R 0.7762 | CI 0.8540 | R2 0.4607 | R2m 0.5422
+Epoch 23 | Train 0.3169 | Val 0.3089 | RMSE 0.5574 | R 0.7899 | CI 0.8594 | R2 0.4442 | R2m 0.6018
+✅ Saved BEST Train_1
+Epoch 24 | Train 0.3118 | Val 0.3046 | RMSE 0.5529 | R 0.7953 | CI 0.8635 | R2 0.3996 | R2m 0.6206
+✅ Saved BEST Train_1
+Epoch 25 | Train 0.2868 | Val 0.3097 | RMSE 0.5581 | R 0.7925 | CI 0.8593 | R2 0.3820 | R2m 0.6161
+Epoch 26 | Train 0.2880 | Val 0.2974 | RMSE 0.5464 | R 0.8002 | CI 0.8635 | R2 0.5096 | R2m 0.5807
+Epoch 27 | Train 0.2730 | Val 0.3069 | RMSE 0.5553 | R 0.7859 | CI 0.8462 | R2 0.3692 | R2m 0.6102
+Epoch 28 | Train 0.2745 | Val 0.3250 | RMSE 0.5711 | R 0.7934 | CI 0.8605 | R2 0.5402 | R2m 0.5150
+Epoch 29 | Train 0.2665 | Val 0.3129 | RMSE 0.5604 | R 0.8035 | CI 0.8628 | R2 0.4950 | R2m 0.5709
+Epoch 30 | Train 0.2619 | Val 0.3210 | RMSE 0.5685 | R 0.8039 | CI 0.8611 | R2 0.5145 | R2m 0.5891
+Epoch 31 | Train 0.2243 | Val 0.2615 | RMSE 0.5129 | R 0.8220 | CI 0.8713 | R2 0.5366 | R2m 0.6547
+✅ Saved BEST Train_1
+Epoch 32 | Train 0.2125 | Val 0.2539 | RMSE 0.5054 | R 0.8292 | CI 0.8772 | R2 0.5789 | R2m 0.6479
+Epoch 33 | Train 0.2114 | Val 0.2473 | RMSE 0.4990 | R 0.8322 | CI 0.8792 | R2 0.5814 | R2m 0.6640
+✅ Saved BEST Train_1
+Epoch 34 | Train 0.2074 | Val 0.2650 | RMSE 0.5164 | R 0.8249 | CI 0.8659 | R2 0.4888 | R2m 0.6777
+✅ Saved BEST Train_1
+Epoch 35 | Train 0.2088 | Val 0.2575 | RMSE 0.5084 | R 0.8293 | CI 0.8749 | R2 0.4992 | R2m 0.6762
+✅ Saved BEST Train_1
+Epoch 36 | Train 0.2133 | Val 0.2506 | RMSE 0.5022 | R 0.8306 | CI 0.8772 | R2 0.6015 | R2m 0.6475
+Epoch 37 | Train 0.1974 | Val 0.2456 | RMSE 0.4966 | R 0.8326 | CI 0.8743 | R2 0.5317 | R2m 0.6767
+Epoch 38 | Train 0.1943 | Val 0.2733 | RMSE 0.5244 | R 0.8208 | CI 0.8740 | R2 0.5329 | R2m 0.6323
+Epoch 39 | Train 0.2019 | Val 0.2470 | RMSE 0.4984 | R 0.8319 | CI 0.8787 | R2 0.5598 | R2m 0.6911
+✅ Saved BEST Train_1
+Epoch 40 | Train 0.1909 | Val 0.2513 | RMSE 0.5034 | R 0.8304 | CI 0.8749 | R2 0.6118 | R2m 0.6338
+Epoch 41 | Train 0.1856 | Val 0.2496 | RMSE 0.5016 | R 0.8348 | CI 0.8753 | R2 0.5361 | R2m 0.6959
+✅ Saved BEST Train_1
+Epoch 42 | Train 0.1787 | Val 0.2430 | RMSE 0.4947 | R 0.8342 | CI 0.8722 | R2 0.5834 | R2m 0.6758
+Epoch 43 | Train 0.1745 | Val 0.2564 | RMSE 0.5078 | R 0.8280 | CI 0.8671 | R2 0.5308 | R2m 0.6767
+Epoch 44 | Train 0.1721 | Val 0.2351 | RMSE 0.4866 | R 0.8398 | CI 0.8767 | R2 0.6002 | R2m 0.6888
+Epoch 45 | Train 0.1693 | Val 0.2430 | RMSE 0.4945 | R 0.8378 | CI 0.8758 | R2 0.6387 | R2m 0.6371
+Epoch 46 | Train 0.1661 | Val 0.2402 | RMSE 0.4921 | R 0.8391 | CI 0.8788 | R2 0.6371 | R2m 0.6413
+Epoch 47 | Train 0.1654 | Val 0.2461 | RMSE 0.4980 | R 0.8360 | CI 0.8808 | R2 0.6383 | R2m 0.6250
+Epoch 48 | Train 0.1439 | Val 0.2271 | RMSE 0.4784 | R 0.8455 | CI 0.8831 | R2 0.6066 | R2m 0.7085
+✅ Saved BEST Train_1
+Epoch 49 | Train 0.1383 | Val 0.2272 | RMSE 0.4784 | R 0.8465 | CI 0.8852 | R2 0.6329 | R2m 0.6837
+Epoch 50 | Train 0.1369 | Val 0.2277 | RMSE 0.4791 | R 0.8464 | CI 0.8827 | R2 0.6406 | R2m 0.6796
+Epoch 51 | Train 0.1387 | Val 0.2318 | RMSE 0.4834 | R 0.8453 | CI 0.8804 | R2 0.6474 | R2m 0.6555
+Epoch 52 | Train 0.1367 | Val 0.2338 | RMSE 0.4853 | R 0.8476 | CI 0.8822 | R2 0.5842 | R2m 0.7116
+✅ Saved BEST Train_1
+Epoch 53 | Train 0.1336 | Val 0.2297 | RMSE 0.4813 | R 0.8448 | CI 0.8777 | R2 0.6364 | R2m 0.6766
+Epoch 54 | Train 0.1289 | Val 0.2281 | RMSE 0.4796 | R 0.8454 | CI 0.8818 | R2 0.6139 | R2m 0.6971
+Epoch 55 | Train 0.1296 | Val 0.2300 | RMSE 0.4815 | R 0.8464 | CI 0.8810 | R2 0.6450 | R2m 0.6631
+Epoch 56 | Train 0.1285 | Val 0.2324 | RMSE 0.4840 | R 0.8441 | CI 0.8815 | R2 0.6460 | R2m 0.6611
+Epoch 57 | Train 0.1261 | Val 0.2225 | RMSE 0.4737 | R 0.8492 | CI 0.8822 | R2 0.6366 | R2m 0.6983
+Epoch 58 | Train 0.1230 | Val 0.2236 | RMSE 0.4748 | R 0.8493 | CI 0.8837 | R2 0.6504 | R2m 0.6797
+Epoch 59 | Train 0.1135 | Val 0.2196 | RMSE 0.4705 | R 0.8521 | CI 0.8844 | R2 0.6556 | R2m 0.6875
+Epoch 60 | Train 0.1106 | Val 0.2230 | RMSE 0.4742 | R 0.8505 | CI 0.8789 | R2 0.6402 | R2m 0.6893
+Epoch 61 | Train 0.1107 | Val 0.2222 | RMSE 0.4734 | R 0.8505 | CI 0.8849 | R2 0.6525 | R2m 0.6864
+Epoch 62 | Train 0.1090 | Val 0.2209 | RMSE 0.4721 | R 0.8517 | CI 0.8820 | R2 0.6413 | R2m 0.6949
+Epoch 63 | Train 0.1084 | Val 0.2201 | RMSE 0.4712 | R 0.8513 | CI 0.8829 | R2 0.6486 | R2m 0.6945
+Epoch 64 | Train 0.1075 | Val 0.2266 | RMSE 0.4780 | R 0.8509 | CI 0.8819 | R2 0.6358 | R2m 0.6840
+Epoch 65 | Train 0.1022 | Val 0.2178 | RMSE 0.4687 | R 0.8530 | CI 0.8853 | R2 0.6553 | R2m 0.6937
+Epoch 66 | Train 0.1014 | Val 0.2177 | RMSE 0.4686 | R 0.8533 | CI 0.8850 | R2 0.6571 | R2m 0.6916
+Epoch 67 | Train 0.1003 | Val 0.2214 | RMSE 0.4726 | R 0.8522 | CI 0.8850 | R2 0.6680 | R2m 0.6683
+Epoch 68 | Train 0.1001 | Val 0.2181 | RMSE 0.4690 | R 0.8533 | CI 0.8837 | R2 0.6616 | R2m 0.6876
+Epoch 69 | Train 0.0991 | Val 0.2200 | RMSE 0.4710 | R 0.8536 | CI 0.8841 | R2 0.6680 | R2m 0.6827
+Epoch 70 | Train 0.0996 | Val 0.2197 | RMSE 0.4708 | R 0.8527 | CI 0.8838 | R2 0.6639 | R2m 0.6774
+Epoch 71 | Train 0.0976 | Val 0.2172 | RMSE 0.4681 | R 0.8539 | CI 0.8854 | R2 0.6628 | R2m 0.6875
+Epoch 72 | Train 0.0948 | Val 0.2179 | RMSE 0.4688 | R 0.8538 | CI 0.8853 | R2 0.6628 | R2m 0.6843
+⛔ Early stopping triggered at epoch 72
+
+===== Fold: Train_2 =====
+Epoch 1 | Train 0.9587 | Val 0.6274 | RMSE 0.7950 | R 0.4975 | CI 0.7562 | R2 -3.0964 | R2m 0.2366
+✅ Saved BEST Train_2
+Epoch 2 | Train 0.6684 | Val 0.5494 | RMSE 0.7437 | R 0.5837 | CI 0.7901 | R2 -0.8541 | R2m 0.3385
+✅ Saved BEST Train_2
+Epoch 3 | Train 0.6159 | Val 0.5266 | RMSE 0.7280 | R 0.6116 | CI 0.8009 | R2 -1.1531 | R2m 0.3547
+✅ Saved BEST Train_2
+Epoch 4 | Train 0.5874 | Val 0.5599 | RMSE 0.7506 | R 0.6273 | CI 0.7918 | R2 -1.0433 | R2m 0.3673
+✅ Saved BEST Train_2
+Epoch 5 | Train 0.5491 | Val 0.4702 | RMSE 0.6875 | R 0.6791 | CI 0.8132 | R2 -0.3255 | R2m 0.4425
+✅ Saved BEST Train_2
+Epoch 6 | Train 0.5213 | Val 0.4608 | RMSE 0.6808 | R 0.6874 | CI 0.8220 | R2 -0.3533 | R2m 0.4437
+✅ Saved BEST Train_2
+Epoch 7 | Train 0.4924 | Val 0.4253 | RMSE 0.6540 | R 0.7101 | CI 0.8327 | R2 -0.5287 | R2m 0.4375
+✅ Saved BEST Train_2
+Epoch 8 | Train 0.4688 | Val 0.4980 | RMSE 0.7069 | R 0.7077 | CI 0.8244 | R2 -0.4854 | R2m 0.4823
+✅ Saved BEST Train_2
+Epoch 9 | Train 0.4787 | Val 0.5171 | RMSE 0.7203 | R 0.6921 | CI 0.8110 | R2 -0.1653 | R2m 0.4418
+Epoch 10 | Train 0.4445 | Val 0.5586 | RMSE 0.7498 | R 0.7203 | CI 0.8374 | R2 0.1572 | R2m 0.4573
+Epoch 11 | Train 0.4225 | Val 0.3734 | RMSE 0.6126 | R 0.7433 | CI 0.8272 | R2 0.2695 | R2m 0.5311
+✅ Saved BEST Train_2
+Epoch 12 | Train 0.4097 | Val 0.6062 | RMSE 0.7797 | R 0.7295 | CI 0.8289 | R2 -0.7264 | R2m 0.5218
+Epoch 13 | Train 0.4243 | Val 0.3695 | RMSE 0.6094 | R 0.7545 | CI 0.8392 | R2 0.1081 | R2m 0.5328
+✅ Saved BEST Train_2
+Epoch 14 | Train 0.3884 | Val 0.3876 | RMSE 0.6236 | R 0.7413 | CI 0.8374 | R2 0.2043 | R2m 0.5258
+Epoch 15 | Train 0.3949 | Val 0.4106 | RMSE 0.6425 | R 0.7373 | CI 0.8316 | R2 0.4191 | R2m 0.4462
+Epoch 16 | Train 0.3764 | Val 0.3753 | RMSE 0.6138 | R 0.7593 | CI 0.8426 | R2 0.0055 | R2m 0.5352
+✅ Saved BEST Train_2
+Epoch 17 | Train 0.3660 | Val 0.3642 | RMSE 0.6048 | R 0.7503 | CI 0.8422 | R2 0.2890 | R2m 0.5444
+✅ Saved BEST Train_2
+Epoch 18 | Train 0.3460 | Val 0.4349 | RMSE 0.6612 | R 0.7849 | CI 0.8502 | R2 -0.0630 | R2m 0.5916
+✅ Saved BEST Train_2
+Epoch 19 | Train 0.3379 | Val 0.3465 | RMSE 0.5892 | R 0.7813 | CI 0.8578 | R2 0.4636 | R2m 0.5306
+Epoch 20 | Train 0.3291 | Val 0.3672 | RMSE 0.6073 | R 0.7747 | CI 0.8474 | R2 0.0554 | R2m 0.5561
+Epoch 21 | Train 0.3398 | Val 0.3007 | RMSE 0.5492 | R 0.8007 | CI 0.8656 | R2 0.5087 | R2m 0.5982
+✅ Saved BEST Train_2
+Epoch 22 | Train 0.3200 | Val 0.3174 | RMSE 0.5648 | R 0.7915 | CI 0.8599 | R2 0.2161 | R2m 0.5596
+Epoch 23 | Train 0.3343 | Val 0.4332 | RMSE 0.6591 | R 0.7720 | CI 0.8409 | R2 -0.1276 | R2m 0.5626
+Epoch 24 | Train 0.3219 | Val 0.3476 | RMSE 0.5921 | R 0.7967 | CI 0.8490 | R2 0.2770 | R2m 0.6331
+✅ Saved BEST Train_2
+Epoch 25 | Train 0.3064 | Val 0.3331 | RMSE 0.5789 | R 0.7967 | CI 0.8640 | R2 0.5408 | R2m 0.5507
+Epoch 26 | Train 0.2915 | Val 0.3107 | RMSE 0.5595 | R 0.8073 | CI 0.8687 | R2 0.4690 | R2m 0.6428
+✅ Saved BEST Train_2
+Epoch 27 | Train 0.2786 | Val 0.2973 | RMSE 0.5464 | R 0.8067 | CI 0.8637 | R2 0.5490 | R2m 0.5934
+Epoch 28 | Train 3.8055 | Val 0.5190 | RMSE 0.7183 | R 0.6212 | CI 0.7240 | R2 -0.7956 | R2m 0.3723
+Epoch 29 | Train 0.9794 | Val 0.5294 | RMSE 0.7301 | R 0.6014 | CI 0.7921 | R2 -0.7129 | R2m 0.3600
+Epoch 30 | Train 0.5438 | Val 0.6054 | RMSE 0.7807 | R 0.6570 | CI 0.8125 | R2 -0.6724 | R2m 0.4106
+Epoch 31 | Train 0.4736 | Val 0.3985 | RMSE 0.6335 | R 0.7199 | CI 0.8361 | R2 0.0166 | R2m 0.5072
+Epoch 32 | Train 0.4260 | Val 0.3870 | RMSE 0.6239 | R 0.7463 | CI 0.8427 | R2 -0.1941 | R2m 0.4932
+Epoch 33 | Train 0.3653 | Val 0.3517 | RMSE 0.5949 | R 0.7703 | CI 0.8544 | R2 0.0339 | R2m 0.5311
+Epoch 34 | Train 0.3440 | Val 0.3433 | RMSE 0.5877 | R 0.7719 | CI 0.8582 | R2 0.3024 | R2m 0.5870
+Epoch 35 | Train 0.3321 | Val 0.3231 | RMSE 0.5704 | R 0.7885 | CI 0.8636 | R2 0.3320 | R2m 0.6156
+Epoch 36 | Train 0.3207 | Val 0.3224 | RMSE 0.5693 | R 0.7887 | CI 0.8606 | R2 0.3305 | R2m 0.6135
+Epoch 37 | Train 0.3063 | Val 0.3006 | RMSE 0.5501 | R 0.7980 | CI 0.8709 | R2 0.4565 | R2m 0.6216
+Epoch 38 | Train 0.2962 | Val 0.3130 | RMSE 0.5606 | R 0.8018 | CI 0.8662 | R2 0.3909 | R2m 0.6193
+Epoch 39 | Train 0.2702 | Val 0.2829 | RMSE 0.5336 | R 0.8131 | CI 0.8748 | R2 0.4648 | R2m 0.6566
+✅ Saved BEST Train_2
+Epoch 40 | Train 0.2630 | Val 0.2785 | RMSE 0.5294 | R 0.8151 | CI 0.8760 | R2 0.4853 | R2m 0.6563
+✅ Saved BEST Train_2
+Epoch 41 | Train 0.2548 | Val 0.2747 | RMSE 0.5254 | R 0.8178 | CI 0.8738 | R2 0.4978 | R2m 0.6624
+✅ Saved BEST Train_2
+Epoch 42 | Train 0.2525 | Val 0.2707 | RMSE 0.5218 | R 0.8210 | CI 0.8746 | R2 0.5116 | R2m 0.6684
+✅ Saved BEST Train_2
+Epoch 43 | Train 0.2502 | Val 0.2762 | RMSE 0.5271 | R 0.8180 | CI 0.8713 | R2 0.4667 | R2m 0.6533
+Epoch 44 | Train 0.2438 | Val 0.2709 | RMSE 0.5220 | R 0.8226 | CI 0.8782 | R2 0.5319 | R2m 0.6726
+✅ Saved BEST Train_2
+Epoch 45 | Train 0.2417 | Val 0.2648 | RMSE 0.5160 | R 0.8260 | CI 0.8801 | R2 0.5791 | R2m 0.6449
+Epoch 46 | Train 0.2362 | Val 0.2703 | RMSE 0.5215 | R 0.8206 | CI 0.8782 | R2 0.5010 | R2m 0.6641
+Epoch 47 | Train 0.2393 | Val 0.2746 | RMSE 0.5253 | R 0.8194 | CI 0.8725 | R2 0.4938 | R2m 0.6695
+Epoch 48 | Train 0.2309 | Val 0.2603 | RMSE 0.5115 | R 0.8292 | CI 0.8758 | R2 0.4961 | R2m 0.6540
+Epoch 49 | Train 0.2307 | Val 0.2635 | RMSE 0.5150 | R 0.8279 | CI 0.8792 | R2 0.4902 | R2m 0.6504
+Epoch 50 | Train 0.2241 | Val 0.2737 | RMSE 0.5250 | R 0.8289 | CI 0.8796 | R2 0.5699 | R2m 0.6332
+Epoch 51 | Train 0.2108 | Val 0.2601 | RMSE 0.5115 | R 0.8328 | CI 0.8818 | R2 0.5513 | R2m 0.6798
+✅ Saved BEST Train_2
+Epoch 52 | Train 0.2065 | Val 0.2524 | RMSE 0.5039 | R 0.8337 | CI 0.8819 | R2 0.5483 | R2m 0.6866
+✅ Saved BEST Train_2
+Epoch 53 | Train 0.2077 | Val 0.2626 | RMSE 0.5142 | R 0.8348 | CI 0.8799 | R2 0.5175 | R2m 0.6912
+✅ Saved BEST Train_2
+Epoch 54 | Train 0.2055 | Val 0.2547 | RMSE 0.5065 | R 0.8344 | CI 0.8831 | R2 0.6200 | R2m 0.6434
+Epoch 55 | Train 0.2033 | Val 0.2512 | RMSE 0.5028 | R 0.8345 | CI 0.8824 | R2 0.5745 | R2m 0.6865
+Epoch 56 | Train 0.2022 | Val 0.2473 | RMSE 0.4988 | R 0.8378 | CI 0.8843 | R2 0.5926 | R2m 0.6836
+Epoch 57 | Train 0.2026 | Val 0.2481 | RMSE 0.4999 | R 0.8370 | CI 0.8798 | R2 0.5993 | R2m 0.6772
+Epoch 58 | Train 0.2007 | Val 0.2471 | RMSE 0.4988 | R 0.8374 | CI 0.8823 | R2 0.5876 | R2m 0.6888
+✅ Saved BEST Train_2
+Epoch 59 | Train 0.1968 | Val 0.2618 | RMSE 0.5132 | R 0.8282 | CI 0.8771 | R2 0.4962 | R2m 0.6611
+Epoch 60 | Train 0.1870 | Val 0.2455 | RMSE 0.4973 | R 0.8386 | CI 0.8836 | R2 0.5680 | R2m 0.6935
+✅ Saved BEST Train_2
+Epoch 61 | Train 0.1866 | Val 0.2441 | RMSE 0.4957 | R 0.8409 | CI 0.8871 | R2 0.6054 | R2m 0.6819
+Epoch 62 | Train 0.1840 | Val 0.2439 | RMSE 0.4955 | R 0.8406 | CI 0.8865 | R2 0.6072 | R2m 0.6887
+Epoch 63 | Train 0.1843 | Val 0.2424 | RMSE 0.4941 | R 0.8408 | CI 0.8828 | R2 0.5974 | R2m 0.6973
+✅ Saved BEST Train_2
+Epoch 64 | Train 0.1830 | Val 0.2462 | RMSE 0.4978 | R 0.8399 | CI 0.8869 | R2 0.5916 | R2m 0.6871
+Epoch 65 | Train 0.1800 | Val 0.2453 | RMSE 0.4969 | R 0.8402 | CI 0.8834 | R2 0.6024 | R2m 0.6808
+Epoch 66 | Train 0.1809 | Val 0.2449 | RMSE 0.4965 | R 0.8405 | CI 0.8832 | R2 0.5912 | R2m 0.7035
+✅ Saved BEST Train_2
+Epoch 67 | Train 0.1809 | Val 0.2433 | RMSE 0.4950 | R 0.8404 | CI 0.8825 | R2 0.5991 | R2m 0.6900
+Epoch 68 | Train 0.1789 | Val 0.2480 | RMSE 0.4998 | R 0.8392 | CI 0.8834 | R2 0.6151 | R2m 0.6741
+Epoch 69 | Train 0.1784 | Val 0.2463 | RMSE 0.4980 | R 0.8388 | CI 0.8841 | R2 0.6135 | R2m 0.6703
+Epoch 70 | Train 0.1918 | Val 0.2440 | RMSE 0.4958 | R 0.8400 | CI 0.8799 | R2 0.5576 | R2m 0.6844
+Epoch 71 | Train 0.2057 | Val 0.2446 | RMSE 0.4964 | R 0.8393 | CI 0.8833 | R2 0.5733 | R2m 0.7017
+Epoch 72 | Train 0.1795 | Val 0.2402 | RMSE 0.4920 | R 0.8429 | CI 0.8843 | R2 0.5896 | R2m 0.7069
+✅ Saved BEST Train_2
+Epoch 73 | Train 0.1778 | Val 0.2407 | RMSE 0.4925 | R 0.8430 | CI 0.8864 | R2 0.6267 | R2m 0.6791
+Epoch 74 | Train 0.1742 | Val 0.2412 | RMSE 0.4930 | R 0.8415 | CI 0.8854 | R2 0.5995 | R2m 0.6969
+Epoch 75 | Train 0.1740 | Val 0.2435 | RMSE 0.4954 | R 0.8404 | CI 0.8836 | R2 0.5904 | R2m 0.6956
+Epoch 76 | Train 0.1734 | Val 0.2445 | RMSE 0.4964 | R 0.8420 | CI 0.8838 | R2 0.5618 | R2m 0.7001
+Epoch 77 | Train 0.1737 | Val 0.2437 | RMSE 0.4953 | R 0.8416 | CI 0.8850 | R2 0.6339 | R2m 0.6627
+Epoch 78 | Train 0.1709 | Val 0.2431 | RMSE 0.4948 | R 0.8424 | CI 0.8842 | R2 0.6140 | R2m 0.6906
+Epoch 79 | Train 0.1673 | Val 0.2379 | RMSE 0.4895 | R 0.8447 | CI 0.8840 | R2 0.6054 | R2m 0.7009
+Epoch 80 | Train 0.1657 | Val 0.2350 | RMSE 0.4867 | R 0.8467 | CI 0.8858 | R2 0.6369 | R2m 0.6831
+Epoch 81 | Train 0.1628 | Val 0.2364 | RMSE 0.4881 | R 0.8450 | CI 0.8860 | R2 0.6123 | R2m 0.7024
+Epoch 82 | Train 0.1632 | Val 0.2375 | RMSE 0.4892 | R 0.8447 | CI 0.8863 | R2 0.6154 | R2m 0.6932
+Epoch 83 | Train 0.1630 | Val 0.2396 | RMSE 0.4914 | R 0.8435 | CI 0.8842 | R2 0.6203 | R2m 0.6822
+Epoch 84 | Train 0.1623 | Val 0.2366 | RMSE 0.4882 | R 0.8455 | CI 0.8852 | R2 0.6093 | R2m 0.7017
+Epoch 85 | Train 0.1567 | Val 0.2357 | RMSE 0.4872 | R 0.8463 | CI 0.8857 | R2 0.6075 | R2m 0.7063
+✅ Saved BEST Train_2
+Epoch 86 | Train 0.1569 | Val 0.2359 | RMSE 0.4874 | R 0.8460 | CI 0.8866 | R2 0.6214 | R2m 0.6935
+Epoch 87 | Train 0.1578 | Val 0.2357 | RMSE 0.4873 | R 0.8455 | CI 0.8863 | R2 0.6157 | R2m 0.7015
+Epoch 88 | Train 0.1552 | Val 0.2370 | RMSE 0.4885 | R 0.8458 | CI 0.8864 | R2 0.6119 | R2m 0.6982
+Epoch 89 | Train 0.1558 | Val 0.2368 | RMSE 0.4883 | R 0.8458 | CI 0.8855 | R2 0.6079 | R2m 0.7024
+Epoch 90 | Train 0.1555 | Val 0.2378 | RMSE 0.4894 | R 0.8467 | CI 0.8860 | R2 0.6116 | R2m 0.6966
+Epoch 91 | Train 0.1578 | Val 0.2368 | RMSE 0.4885 | R 0.8460 | CI 0.8856 | R2 0.6105 | R2m 0.6996
+Epoch 92 | Train 0.1534 | Val 0.2357 | RMSE 0.4874 | R 0.8460 | CI 0.8863 | R2 0.6151 | R2m 0.6990
+Epoch 93 | Train 0.1540 | Val 0.2343 | RMSE 0.4859 | R 0.8467 | CI 0.8868 | R2 0.6184 | R2m 0.7012
+Epoch 94 | Train 0.1529 | Val 0.2362 | RMSE 0.4878 | R 0.8463 | CI 0.8861 | R2 0.6032 | R2m 0.7085
+✅ Saved BEST Train_2
+Epoch 95 | Train 0.1534 | Val 0.2351 | RMSE 0.4867 | R 0.8458 | CI 0.8860 | R2 0.6067 | R2m 0.7102
+✅ Saved BEST Train_2
+Epoch 96 | Train 0.1516 | Val 0.2346 | RMSE 0.4862 | R 0.8464 | CI 0.8866 | R2 0.6215 | R2m 0.7006
+Epoch 97 | Train 0.1532 | Val 0.2360 | RMSE 0.4876 | R 0.8461 | CI 0.8865 | R2 0.6141 | R2m 0.6991
+Epoch 98 | Train 0.1526 | Val 0.2339 | RMSE 0.4855 | R 0.8469 | CI 0.8861 | R2 0.6172 | R2m 0.7036
+Epoch 99 | Train 0.1504 | Val 0.2344 | RMSE 0.4860 | R 0.8466 | CI 0.8865 | R2 0.6186 | R2m 0.7008
+Epoch 100 | Train 0.1529 | Val 0.2352 | RMSE 0.4868 | R 0.8463 | CI 0.8871 | R2 0.6246 | R2m 0.6928
+Epoch 101 | Train 0.1514 | Val 0.2345 | RMSE 0.4861 | R 0.8467 | CI 0.8868 | R2 0.6217 | R2m 0.6974
+Epoch 102 | Train 0.1495 | Val 0.2344 | RMSE 0.4860 | R 0.8469 | CI 0.8865 | R2 0.6145 | R2m 0.7038
+Epoch 103 | Train 0.1534 | Val 0.2353 | RMSE 0.4869 | R 0.8464 | CI 0.8870 | R2 0.6156 | R2m 0.7000
+Epoch 104 | Train 0.1516 | Val 0.2343 | RMSE 0.4859 | R 0.8470 | CI 0.8871 | R2 0.6246 | R2m 0.6951
+Epoch 105 | Train 0.1514 | Val 0.2341 | RMSE 0.4857 | R 0.8468 | CI 0.8867 | R2 0.6227 | R2m 0.6981
+Epoch 106 | Train 0.1505 | Val 0.2340 | RMSE 0.4856 | R 0.8468 | CI 0.8868 | R2 0.6183 | R2m 0.7024
+Epoch 107 | Train 0.1505 | Val 0.2342 | RMSE 0.4858 | R 0.8471 | CI 0.8871 | R2 0.6264 | R2m 0.6942
+Epoch 108 | Train 0.1507 | Val 0.2344 | RMSE 0.4859 | R 0.8469 | CI 0.8866 | R2 0.6192 | R2m 0.6999
+Epoch 109 | Train 0.1512 | Val 0.2339 | RMSE 0.4855 | R 0.8470 | CI 0.8870 | R2 0.6223 | R2m 0.6990
+Epoch 110 | Train 0.1504 | Val 0.2335 | RMSE 0.4851 | R 0.8471 | CI 0.8870 | R2 0.6236 | R2m 0.6999
+Epoch 111 | Train 0.1501 | Val 0.2338 | RMSE 0.4853 | R 0.8471 | CI 0.8870 | R2 0.6225 | R2m 0.6992
+Epoch 112 | Train 0.1479 | Val 0.2342 | RMSE 0.4857 | R 0.8470 | CI 0.8870 | R2 0.6204 | R2m 0.6995
+Epoch 113 | Train 0.1525 | Val 0.2338 | RMSE 0.4854 | R 0.8471 | CI 0.8872 | R2 0.6228 | R2m 0.6990
+Epoch 114 | Train 0.1500 | Val 0.2340 | RMSE 0.4856 | R 0.8471 | CI 0.8871 | R2 0.6213 | R2m 0.6990
+Epoch 115 | Train 0.1488 | Val 0.2337 | RMSE 0.4853 | R 0.8472 | CI 0.8870 | R2 0.6228 | R2m 0.6992
+⛔ Early stopping triggered at epoch 115
+
+
+===== Fold: Train_3 =====
+Epoch 1 | Train 0.9738 | Val 0.7273 | RMSE 0.8566 | R 0.4662 | CI 0.7331 | R2 -2.2563 | R2m 0.2020
+✅ Saved BEST Train_3
+Epoch 2 | Train 0.7239 | Val 0.5123 | RMSE 0.7190 | R 0.5793 | CI 0.7872 | R2 -1.0608 | R2m 0.3322
+✅ Saved BEST Train_3
+Epoch 3 | Train 0.6327 | Val 0.5950 | RMSE 0.7741 | R 0.5716 | CI 0.7746 | R2 -2.0561 | R2m 0.3153
+Epoch 4 | Train 0.6057 | Val 0.8159 | RMSE 0.9063 | R 0.5770 | CI 0.7768 | R2 -1.4723 | R2m 0.3283
+Epoch 5 | Train 0.5622 | Val 0.5046 | RMSE 0.7134 | R 0.6503 | CI 0.8134 | R2 0.1766 | R2m 0.3401
+✅ Saved BEST Train_3
+Epoch 6 | Train 0.5204 | Val 0.4823 | RMSE 0.6972 | R 0.6686 | CI 0.8176 | R2 -0.1844 | R2m 0.4094
+✅ Saved BEST Train_3
+Epoch 7 | Train 0.4963 | Val 0.4271 | RMSE 0.6564 | R 0.6718 | CI 0.8076 | R2 -0.0161 | R2m 0.4216
+✅ Saved BEST Train_3
+Epoch 8 | Train 0.4986 | Val 0.4103 | RMSE 0.6435 | R 0.6842 | CI 0.8196 | R2 -0.2180 | R2m 0.4575
+✅ Saved BEST Train_3
+Epoch 9 | Train 0.4588 | Val 0.5507 | RMSE 0.7450 | R 0.6858 | CI 0.8248 | R2 -0.3619 | R2m 0.4663
+✅ Saved BEST Train_3
+Epoch 10 | Train 0.4552 | Val 0.4185 | RMSE 0.6493 | R 0.7203 | CI 0.8364 | R2 -0.0343 | R2m 0.5010
+✅ Saved BEST Train_3
+Epoch 11 | Train 0.4296 | Val 0.3852 | RMSE 0.6229 | R 0.7152 | CI 0.8301 | R2 0.2175 | R2m 0.4651
+Epoch 12 | Train 0.4140 | Val 0.3877 | RMSE 0.6252 | R 0.7095 | CI 0.8324 | R2 0.1848 | R2m 0.4648
+Epoch 13 | Train 0.4015 | Val 0.3629 | RMSE 0.6050 | R 0.7304 | CI 0.8339 | R2 0.2539 | R2m 0.4985
+Epoch 14 | Train 0.3962 | Val 0.4259 | RMSE 0.6555 | R 0.7325 | CI 0.8372 | R2 0.2309 | R2m 0.4932
+Epoch 15 | Train 0.3737 | Val 0.4670 | RMSE 0.6848 | R 0.7410 | CI 0.8400 | R2 0.0817 | R2m 0.4794
+Epoch 16 | Train 0.3793 | Val 0.4217 | RMSE 0.6518 | R 0.7356 | CI 0.8422 | R2 -0.1247 | R2m 0.5389
+✅ Saved BEST Train_3
+Epoch 17 | Train 0.3483 | Val 0.4715 | RMSE 0.6895 | R 0.7462 | CI 0.8440 | R2 0.3107 | R2m 0.4742
+Epoch 18 | Train 0.3558 | Val 0.3259 | RMSE 0.5733 | R 0.7715 | CI 0.8623 | R2 0.4839 | R2m 0.5095
+Epoch 19 | Train 0.3338 | Val 0.3764 | RMSE 0.6163 | R 0.7638 | CI 0.8502 | R2 0.2839 | R2m 0.5657
+✅ Saved BEST Train_3
+Epoch 20 | Train 0.3262 | Val 0.3320 | RMSE 0.5787 | R 0.7721 | CI 0.8585 | R2 0.4693 | R2m 0.5230
+Epoch 21 | Train 0.3161 | Val 0.3494 | RMSE 0.5937 | R 0.7678 | CI 0.8549 | R2 0.4464 | R2m 0.5170
+Epoch 22 | Train 0.3369 | Val 0.3822 | RMSE 0.6209 | R 0.7137 | CI 0.8233 | R2 0.1295 | R2m 0.4849
+Epoch 23 | Train 0.5683 | Val 0.4147 | RMSE 0.6469 | R 0.7130 | CI 0.8236 | R2 0.0667 | R2m 0.4976
+Epoch 24 | Train 0.3720 | Val 0.3785 | RMSE 0.6175 | R 0.7576 | CI 0.8425 | R2 0.3163 | R2m 0.4996
+Epoch 25 | Train 0.3281 | Val 0.3328 | RMSE 0.5794 | R 0.7592 | CI 0.8443 | R2 0.1943 | R2m 0.5659
+Epoch 26 | Train 0.2728 | Val 0.2856 | RMSE 0.5365 | R 0.7957 | CI 0.8645 | R2 0.4635 | R2m 0.6043
+✅ Saved BEST Train_3
+Epoch 27 | Train 0.2650 | Val 0.3060 | RMSE 0.5555 | R 0.7823 | CI 0.8638 | R2 0.4824 | R2m 0.5496
+Epoch 28 | Train 0.2554 | Val 0.3006 | RMSE 0.5504 | R 0.7916 | CI 0.8616 | R2 0.4423 | R2m 0.6069
+Epoch 29 | Train 0.2509 | Val 0.2803 | RMSE 0.5316 | R 0.7987 | CI 0.8634 | R2 0.3782 | R2m 0.6123
+✅ Saved BEST Train_3
+Epoch 30 | Train 0.2444 | Val 0.2863 | RMSE 0.5374 | R 0.7966 | CI 0.8625 | R2 0.5117 | R2m 0.5798
+Epoch 31 | Train 0.2444 | Val 0.2938 | RMSE 0.5440 | R 0.8006 | CI 0.8722 | R2 0.5131 | R2m 0.5688
+Epoch 32 | Train 0.2355 | Val 0.2907 | RMSE 0.5415 | R 0.8030 | CI 0.8704 | R2 0.5684 | R2m 0.5572
+Epoch 33 | Train 0.2337 | Val 0.2876 | RMSE 0.5387 | R 0.7942 | CI 0.8573 | R2 0.4353 | R2m 0.6230
+✅ Saved BEST Train_3
+Epoch 34 | Train 0.2307 | Val 0.2781 | RMSE 0.5294 | R 0.8018 | CI 0.8696 | R2 0.5082 | R2m 0.6059
+Epoch 35 | Train 0.2259 | Val 0.2869 | RMSE 0.5379 | R 0.8010 | CI 0.8657 | R2 0.4864 | R2m 0.5950
+Epoch 36 | Train 0.2250 | Val 0.2795 | RMSE 0.5310 | R 0.8074 | CI 0.8749 | R2 0.5761 | R2m 0.5633
+Epoch 37 | Train 0.2179 | Val 0.2764 | RMSE 0.5281 | R 0.8082 | CI 0.8631 | R2 0.4636 | R2m 0.6497
+✅ Saved BEST Train_3
+Epoch 38 | Train 0.2211 | Val 0.2816 | RMSE 0.5328 | R 0.8044 | CI 0.8638 | R2 0.4102 | R2m 0.6242
+Epoch 39 | Train 0.2118 | Val 0.2703 | RMSE 0.5221 | R 0.8102 | CI 0.8677 | R2 0.5438 | R2m 0.6019
+Epoch 40 | Train 0.2143 | Val 0.2865 | RMSE 0.5373 | R 0.8158 | CI 0.8744 | R2 0.4275 | R2m 0.6540
+✅ Saved BEST Train_3
+Epoch 41 | Train 0.2122 | Val 0.2618 | RMSE 0.5138 | R 0.8133 | CI 0.8722 | R2 0.4528 | R2m 0.6407
+Epoch 42 | Train 0.2017 | Val 0.2810 | RMSE 0.5320 | R 0.8121 | CI 0.8773 | R2 0.5578 | R2m 0.5752
+Epoch 43 | Train 0.1952 | Val 0.2848 | RMSE 0.5359 | R 0.8075 | CI 0.8655 | R2 0.4674 | R2m 0.6475
+Epoch 44 | Train 0.1955 | Val 0.2681 | RMSE 0.5193 | R 0.8138 | CI 0.8675 | R2 0.5518 | R2m 0.6054
+Epoch 45 | Train 0.1901 | Val 0.2700 | RMSE 0.5219 | R 0.8086 | CI 0.8633 | R2 0.5399 | R2m 0.6060
+Epoch 46 | Train 0.1893 | Val 0.3016 | RMSE 0.5512 | R 0.8056 | CI 0.8638 | R2 0.4293 | R2m 0.6461
+Epoch 47 | Train 0.1718 | Val 0.2558 | RMSE 0.5080 | R 0.8226 | CI 0.8741 | R2 0.4894 | R2m 0.6547
+✅ Saved BEST Train_3
+Epoch 48 | Train 0.1747 | Val 0.2501 | RMSE 0.5023 | R 0.8220 | CI 0.8704 | R2 0.5193 | R2m 0.6750
+✅ Saved BEST Train_3
+Epoch 49 | Train 0.1623 | Val 0.2594 | RMSE 0.5113 | R 0.8227 | CI 0.8779 | R2 0.5825 | R2m 0.6090
+Epoch 50 | Train 0.1576 | Val 0.2518 | RMSE 0.5037 | R 0.8252 | CI 0.8814 | R2 0.5986 | R2m 0.6170
+Epoch 51 | Train 0.1524 | Val 0.2567 | RMSE 0.5088 | R 0.8248 | CI 0.8805 | R2 0.5482 | R2m 0.6656
+✅ Saved BEST Train_3
+Epoch 52 | Train 0.1518 | Val 0.2451 | RMSE 0.4971 | R 0.8282 | CI 0.8806 | R2 0.5714 | R2m 0.6541
+Epoch 53 | Train 0.1480 | Val 0.2552 | RMSE 0.5071 | R 0.8218 | CI 0.8756 | R2 0.5852 | R2m 0.6169
+Epoch 54 | Train 0.1457 | Val 0.2461 | RMSE 0.4981 | R 0.8262 | CI 0.8778 | R2 0.5749 | R2m 0.6499
+Epoch 55 | Train 0.1447 | Val 0.2583 | RMSE 0.5099 | R 0.8268 | CI 0.8792 | R2 0.5537 | R2m 0.6387
+Epoch 56 | Train 0.1467 | Val 0.2477 | RMSE 0.4998 | R 0.8278 | CI 0.8727 | R2 0.5937 | R2m 0.6309
+Epoch 57 | Train 0.1431 | Val 0.2467 | RMSE 0.4988 | R 0.8264 | CI 0.8768 | R2 0.5820 | R2m 0.6423
+Epoch 58 | Train 0.1290 | Val 0.2405 | RMSE 0.4924 | R 0.8328 | CI 0.8832 | R2 0.5979 | R2m 0.6612
+Epoch 59 | Train 0.1240 | Val 0.2368 | RMSE 0.4886 | R 0.8334 | CI 0.8816 | R2 0.5926 | R2m 0.6646
+✅ Saved BEST Train_3
+Epoch 60 | Train 0.1250 | Val 0.2406 | RMSE 0.4926 | R 0.8329 | CI 0.8812 | R2 0.6215 | R2m 0.6335
+Epoch 61 | Train 0.1241 | Val 0.2430 | RMSE 0.4949 | R 0.8330 | CI 0.8845 | R2 0.6304 | R2m 0.6181
+Epoch 62 | Train 0.1247 | Val 0.2436 | RMSE 0.4955 | R 0.8328 | CI 0.8838 | R2 0.6203 | R2m 0.6233
+Epoch 63 | Train 0.1243 | Val 0.2390 | RMSE 0.4909 | R 0.8332 | CI 0.8832 | R2 0.6153 | R2m 0.6421
+Epoch 64 | Train 0.1160 | Val 0.2358 | RMSE 0.4877 | R 0.8354 | CI 0.8845 | R2 0.6182 | R2m 0.6505
+Epoch 65 | Train 0.1144 | Val 0.2366 | RMSE 0.4885 | R 0.8353 | CI 0.8849 | R2 0.6227 | R2m 0.6439
+Epoch 66 | Train 0.1123 | Val 0.2346 | RMSE 0.4863 | R 0.8362 | CI 0.8849 | R2 0.6174 | R2m 0.6519
+Epoch 67 | Train 0.1109 | Val 0.2339 | RMSE 0.4857 | R 0.8373 | CI 0.8865 | R2 0.6279 | R2m 0.6462
+Epoch 68 | Train 0.1121 | Val 0.2363 | RMSE 0.4881 | R 0.8366 | CI 0.8839 | R2 0.6320 | R2m 0.6403
+Epoch 69 | Train 0.1117 | Val 0.2370 | RMSE 0.4888 | R 0.8348 | CI 0.8844 | R2 0.6187 | R2m 0.6443
+Epoch 70 | Train 0.1079 | Val 0.2363 | RMSE 0.4882 | R 0.8362 | CI 0.8860 | R2 0.6303 | R2m 0.6372
+Epoch 71 | Train 0.1064 | Val 0.2343 | RMSE 0.4861 | R 0.8366 | CI 0.8854 | R2 0.6214 | R2m 0.6535
+Epoch 72 | Train 0.1069 | Val 0.2348 | RMSE 0.4866 | R 0.8364 | CI 0.8835 | R2 0.6195 | R2m 0.6492
+Epoch 73 | Train 0.1054 | Val 0.2364 | RMSE 0.4881 | R 0.8362 | CI 0.8860 | R2 0.6227 | R2m 0.6418
+Epoch 74 | Train 0.1056 | Val 0.2340 | RMSE 0.4856 | R 0.8371 | CI 0.8869 | R2 0.6251 | R2m 0.6485
+Epoch 75 | Train 0.1054 | Val 0.2331 | RMSE 0.4848 | R 0.8374 | CI 0.8862 | R2 0.6234 | R2m 0.6539
+Epoch 76 | Train 0.1030 | Val 0.2327 | RMSE 0.4843 | R 0.8378 | CI 0.8862 | R2 0.6221 | R2m 0.6539
+Epoch 77 | Train 0.1035 | Val 0.2315 | RMSE 0.4831 | R 0.8383 | CI 0.8854 | R2 0.6192 | R2m 0.6599
+Epoch 78 | Train 0.1049 | Val 0.2336 | RMSE 0.4853 | R 0.8375 | CI 0.8860 | R2 0.6267 | R2m 0.6475
+Epoch 79 | Train 0.1006 | Val 0.2324 | RMSE 0.4840 | R 0.8380 | CI 0.8857 | R2 0.6248 | R2m 0.6535
+⛔ Early stopping triggered at epoch 79
+
+===== Fold: Train_4 =====
+Epoch 1 | Train 0.9815 | Val 0.6152 | RMSE 0.7874 | R 0.5143 | CI 0.7433 | R2 -2.1676 | R2m 0.2581
+✅ Saved BEST Train_4
+Epoch 2 | Train 0.6562 | Val 0.5670 | RMSE 0.7565 | R 0.5702 | CI 0.7799 | R2 -1.3094 | R2m 0.3195
+✅ Saved BEST Train_4
+Epoch 3 | Train 0.6140 | Val 0.5823 | RMSE 0.7666 | R 0.6235 | CI 0.7976 | R2 -0.6974 | R2m 0.3713
+✅ Saved BEST Train_4
+Epoch 4 | Train 0.5696 | Val 0.5567 | RMSE 0.7495 | R 0.6498 | CI 0.7952 | R2 -0.9764 | R2m 0.4073
+✅ Saved BEST Train_4
+Epoch 5 | Train 0.5332 | Val 0.4416 | RMSE 0.6676 | R 0.6863 | CI 0.8185 | R2 -0.2111 | R2m 0.4602
+✅ Saved BEST Train_4
+Epoch 6 | Train 0.4964 | Val 0.5370 | RMSE 0.7362 | R 0.6995 | CI 0.8096 | R2 -0.6470 | R2m 0.4728
+✅ Saved BEST Train_4
+Epoch 7 | Train 0.4644 | Val 0.4912 | RMSE 0.7029 | R 0.7113 | CI 0.8337 | R2 0.0729 | R2m 0.4821
+✅ Saved BEST Train_4
+Epoch 8 | Train 0.4777 | Val 0.4879 | RMSE 0.7013 | R 0.7260 | CI 0.8363 | R2 -0.0190 | R2m 0.5225
+✅ Saved BEST Train_4
+Epoch 9 | Train 0.4389 | Val 0.4127 | RMSE 0.6453 | R 0.7196 | CI 0.8156 | R2 0.1751 | R2m 0.4824
+Epoch 10 | Train 0.4315 | Val 0.3806 | RMSE 0.6198 | R 0.7474 | CI 0.8375 | R2 0.1257 | R2m 0.5529
+✅ Saved BEST Train_4
+Epoch 11 | Train 0.4147 | Val 0.5360 | RMSE 0.7347 | R 0.7425 | CI 0.8463 | R2 0.1438 | R2m 0.5136
+Epoch 12 | Train 0.4023 | Val 0.3687 | RMSE 0.6096 | R 0.7662 | CI 0.8565 | R2 0.2218 | R2m 0.5812
+✅ Saved BEST Train_4
+Epoch 13 | Train 0.3905 | Val 0.3621 | RMSE 0.6045 | R 0.7537 | CI 0.8467 | R2 0.3065 | R2m 0.5481
+Epoch 14 | Train 0.3823 | Val 0.3653 | RMSE 0.6069 | R 0.7655 | CI 0.8473 | R2 0.3535 | R2m 0.5374
+Epoch 15 | Train 0.3655 | Val 0.4216 | RMSE 0.6485 | R 0.7610 | CI 0.8241 | R2 0.2566 | R2m 0.5649
+Epoch 16 | Train 0.3620 | Val 0.3502 | RMSE 0.5941 | R 0.7756 | CI 0.8558 | R2 0.3306 | R2m 0.5998
+✅ Saved BEST Train_4
+Epoch 17 | Train 0.3517 | Val 0.3593 | RMSE 0.6010 | R 0.7884 | CI 0.8504 | R2 0.2481 | R2m 0.5803
+Epoch 18 | Train 0.3608 | Val 0.3270 | RMSE 0.5744 | R 0.7861 | CI 0.8503 | R2 0.3968 | R2m 0.5950
+Epoch 19 | Train 0.3333 | Val 0.3736 | RMSE 0.6133 | R 0.7873 | CI 0.8577 | R2 0.2900 | R2m 0.5910
+Epoch 20 | Train 0.3194 | Val 0.3315 | RMSE 0.5780 | R 0.7975 | CI 0.8599 | R2 0.5343 | R2m 0.5330
+Epoch 21 | Train 0.3144 | Val 0.3199 | RMSE 0.5682 | R 0.7876 | CI 0.8661 | R2 0.4405 | R2m 0.5879
+Epoch 22 | Train 0.3139 | Val 0.3103 | RMSE 0.5596 | R 0.7952 | CI 0.8596 | R2 0.4979 | R2m 0.5872
+Epoch 23 | Train 0.2629 | Val 0.2927 | RMSE 0.5434 | R 0.8160 | CI 0.8755 | R2 0.5434 | R2m 0.6068
+✅ Saved BEST Train_4
+Epoch 24 | Train 0.2493 | Val 0.2846 | RMSE 0.5359 | R 0.8210 | CI 0.8742 | R2 0.5481 | R2m 0.6494
+✅ Saved BEST Train_4
+Epoch 25 | Train 0.2494 | Val 0.2661 | RMSE 0.5182 | R 0.8263 | CI 0.8789 | R2 0.5782 | R2m 0.6478
+✅ Saved BEST Train_4
+Epoch 26 | Train 0.2445 | Val 0.2686 | RMSE 0.5206 | R 0.8261 | CI 0.8817 | R2 0.5195 | R2m 0.6808
+✅ Saved BEST Train_4
+Epoch 27 | Train 0.2325 | Val 0.2785 | RMSE 0.5301 | R 0.8212 | CI 0.8781 | R2 0.5485 | R2m 0.6533
+Epoch 28 | Train 0.2347 | Val 0.2751 | RMSE 0.5266 | R 0.8276 | CI 0.8651 | R2 0.5268 | R2m 0.6774
+Epoch 29 | Train 0.2301 | Val 0.2981 | RMSE 0.5480 | R 0.8331 | CI 0.8714 | R2 0.4425 | R2m 0.6925
+✅ Saved BEST Train_4
+Epoch 30 | Train 0.2340 | Val 0.2531 | RMSE 0.5054 | R 0.8362 | CI 0.8843 | R2 0.6112 | R2m 0.6578
+Epoch 31 | Train 0.2183 | Val 0.2570 | RMSE 0.5093 | R 0.8342 | CI 0.8777 | R2 0.6133 | R2m 0.6517
+Epoch 32 | Train 0.2107 | Val 0.2766 | RMSE 0.5283 | R 0.8371 | CI 0.8833 | R2 0.6054 | R2m 0.6551
+Epoch 33 | Train 0.2017 | Val 0.2557 | RMSE 0.5080 | R 0.8370 | CI 0.8840 | R2 0.6321 | R2m 0.6335
+Epoch 34 | Train 0.2042 | Val 0.2465 | RMSE 0.4987 | R 0.8395 | CI 0.8820 | R2 0.5863 | R2m 0.7022
+✅ Saved BEST Train_4
+Epoch 35 | Train 0.2002 | Val 0.2607 | RMSE 0.5127 | R 0.8392 | CI 0.8871 | R2 0.6444 | R2m 0.6127
+Epoch 36 | Train 0.1944 | Val 0.2655 | RMSE 0.5177 | R 0.8417 | CI 0.8898 | R2 0.6618 | R2m 0.6152
+Epoch 37 | Train 0.1896 | Val 0.2522 | RMSE 0.5045 | R 0.8424 | CI 0.8844 | R2 0.6286 | R2m 0.6710
+Epoch 38 | Train 0.1878 | Val 0.2512 | RMSE 0.5034 | R 0.8364 | CI 0.8697 | R2 0.5914 | R2m 0.6833
+Epoch 39 | Train 0.1902 | Val 0.2520 | RMSE 0.5043 | R 0.8414 | CI 0.8846 | R2 0.6504 | R2m 0.6407
+Epoch 40 | Train 0.1816 | Val 0.2404 | RMSE 0.4924 | R 0.8444 | CI 0.8806 | R2 0.6261 | R2m 0.6841
+Epoch 41 | Train 0.1542 | Val 0.2344 | RMSE 0.4863 | R 0.8497 | CI 0.8893 | R2 0.6345 | R2m 0.7048
+✅ Saved BEST Train_4
+Epoch 42 | Train 0.1488 | Val 0.2314 | RMSE 0.4833 | R 0.8519 | CI 0.8901 | R2 0.6630 | R2m 0.6789
+Epoch 43 | Train 0.1450 | Val 0.2325 | RMSE 0.4844 | R 0.8517 | CI 0.8899 | R2 0.6626 | R2m 0.6718
+Epoch 44 | Train 0.1432 | Val 0.2300 | RMSE 0.4818 | R 0.8549 | CI 0.8918 | R2 0.6723 | R2m 0.6690
+Epoch 45 | Train 0.1392 | Val 0.2431 | RMSE 0.4953 | R 0.8488 | CI 0.8900 | R2 0.6700 | R2m 0.6506
+Epoch 46 | Train 0.1414 | Val 0.2318 | RMSE 0.4836 | R 0.8543 | CI 0.8947 | R2 0.6869 | R2m 0.6519
+Epoch 47 | Train 0.1350 | Val 0.2278 | RMSE 0.4794 | R 0.8532 | CI 0.8916 | R2 0.6426 | R2m 0.7063
+✅ Saved BEST Train_4
+Epoch 48 | Train 0.1316 | Val 0.2337 | RMSE 0.4856 | R 0.8522 | CI 0.8905 | R2 0.6778 | R2m 0.6581
+Epoch 49 | Train 0.1313 | Val 0.2324 | RMSE 0.4842 | R 0.8521 | CI 0.8894 | R2 0.6263 | R2m 0.7246
+✅ Saved BEST Train_4
+Epoch 50 | Train 0.1268 | Val 0.2312 | RMSE 0.4830 | R 0.8537 | CI 0.8941 | R2 0.6772 | R2m 0.6616
+Epoch 51 | Train 0.1265 | Val 0.2251 | RMSE 0.4766 | R 0.8560 | CI 0.8902 | R2 0.6723 | R2m 0.6876
+Epoch 52 | Train 0.1240 | Val 0.2252 | RMSE 0.4767 | R 0.8550 | CI 0.8909 | R2 0.6392 | R2m 0.7180
+Epoch 53 | Train 0.1233 | Val 0.2363 | RMSE 0.4883 | R 0.8514 | CI 0.8909 | R2 0.6804 | R2m 0.6454
+Epoch 54 | Train 0.1215 | Val 0.2326 | RMSE 0.4845 | R 0.8533 | CI 0.8874 | R2 0.6652 | R2m 0.6845
+Epoch 55 | Train 0.1206 | Val 0.2413 | RMSE 0.4934 | R 0.8546 | CI 0.8863 | R2 0.6647 | R2m 0.6493
+Epoch 56 | Train 0.1089 | Val 0.2217 | RMSE 0.4730 | R 0.8589 | CI 0.8920 | R2 0.6846 | R2m 0.6842
+Epoch 57 | Train 0.1060 | Val 0.2292 | RMSE 0.4809 | R 0.8576 | CI 0.8935 | R2 0.6979 | R2m 0.6554
+Epoch 58 | Train 0.1044 | Val 0.2284 | RMSE 0.4801 | R 0.8584 | CI 0.8938 | R2 0.6883 | R2m 0.6762
+Epoch 59 | Train 0.1053 | Val 0.2238 | RMSE 0.4753 | R 0.8579 | CI 0.8884 | R2 0.6853 | R2m 0.6796
+Epoch 60 | Train 0.1038 | Val 0.2233 | RMSE 0.4747 | R 0.8589 | CI 0.8945 | R2 0.6876 | R2m 0.6826
+Epoch 61 | Train 0.1029 | Val 0.2234 | RMSE 0.4747 | R 0.8578 | CI 0.8941 | R2 0.6827 | R2m 0.6819
+Epoch 62 | Train 0.0959 | Val 0.2192 | RMSE 0.4703 | R 0.8592 | CI 0.8913 | R2 0.6671 | R2m 0.7100
+Epoch 63 | Train 0.0943 | Val 0.2218 | RMSE 0.4731 | R 0.8593 | CI 0.8921 | R2 0.6883 | R2m 0.6829
+Epoch 64 | Train 0.0949 | Val 0.2209 | RMSE 0.4721 | R 0.8597 | CI 0.8939 | R2 0.6882 | R2m 0.6857
+Epoch 65 | Train 0.0943 | Val 0.2204 | RMSE 0.4716 | R 0.8605 | CI 0.8923 | R2 0.6932 | R2m 0.6785
+Epoch 66 | Train 0.0929 | Val 0.2196 | RMSE 0.4707 | R 0.8599 | CI 0.8915 | R2 0.6830 | R2m 0.6953
+Epoch 67 | Train 0.0921 | Val 0.2208 | RMSE 0.4720 | R 0.8598 | CI 0.8927 | R2 0.6880 | R2m 0.6824
+Epoch 68 | Train 0.0893 | Val 0.2215 | RMSE 0.4728 | R 0.8602 | CI 0.8940 | R2 0.6953 | R2m 0.6767
+Epoch 69 | Train 0.0895 | Val 0.2225 | RMSE 0.4739 | R 0.8600 | CI 0.8939 | R2 0.6979 | R2m 0.6693
+⛔ Early stopping triggered at epoch 69
+
+
+===== Fold: Train_5 =====
+Epoch 1 | Train 1.0091 | Val 1.0691 | RMSE 1.0347 | R 0.5496 | CI 0.7797 | R2 -1.7922 | R2m 0.2830
+✅ Saved BEST Train_5
+Epoch 2 | Train 0.6817 | Val 1.2918 | RMSE 1.1394 | R 0.5762 | CI 0.7883 | R2 -1.3841 | R2m 0.2896
+✅ Saved BEST Train_5
+Epoch 3 | Train 0.6278 | Val 0.4412 | RMSE 0.6670 | R 0.6365 | CI 0.8102 | R2 -0.3447 | R2m 0.3951
+✅ Saved BEST Train_5
+Epoch 4 | Train 0.5652 | Val 0.6468 | RMSE 0.8075 | R 0.6264 | CI 0.7885 | R2 -1.9109 | R2m 0.3820
+Epoch 5 | Train 0.5354 | Val 0.5240 | RMSE 0.7267 | R 0.6657 | CI 0.7963 | R2 -0.8156 | R2m 0.4429
+✅ Saved BEST Train_5
+Epoch 6 | Train 0.4828 | Val 0.4417 | RMSE 0.6666 | R 0.6371 | CI 0.7745 | R2 -0.3911 | R2m 0.3986
+Epoch 7 | Train 0.4905 | Val 0.4056 | RMSE 0.6394 | R 0.7060 | CI 0.8251 | R2 0.3362 | R2m 0.4054
+Epoch 8 | Train 0.4348 | Val 0.3609 | RMSE 0.6031 | R 0.7181 | CI 0.8292 | R2 0.0890 | R2m 0.5056
+✅ Saved BEST Train_5
+Epoch 9 | Train 0.4240 | Val 0.3512 | RMSE 0.5950 | R 0.7285 | CI 0.8340 | R2 0.2353 | R2m 0.4961
+Epoch 10 | Train 0.4095 | Val 0.3813 | RMSE 0.6184 | R 0.7286 | CI 0.8375 | R2 0.0574 | R2m 0.5227
+✅ Saved BEST Train_5
+Epoch 11 | Train 0.4181 | Val 0.3473 | RMSE 0.5919 | R 0.7337 | CI 0.8402 | R2 0.2429 | R2m 0.5038
+Epoch 12 | Train 0.3921 | Val 0.3572 | RMSE 0.5999 | R 0.7359 | CI 0.8395 | R2 0.1791 | R2m 0.5140
+Epoch 13 | Train 0.3752 | Val 0.3835 | RMSE 0.6219 | R 0.7361 | CI 0.8423 | R2 0.0872 | R2m 0.5151
+Epoch 14 | Train 0.3676 | Val 0.3263 | RMSE 0.5736 | R 0.7532 | CI 0.8475 | R2 0.3334 | R2m 0.5263
+✅ Saved BEST Train_5
+Epoch 15 | Train 0.3598 | Val 0.4144 | RMSE 0.6465 | R 0.7547 | CI 0.8451 | R2 0.1909 | R2m 0.5496
+✅ Saved BEST Train_5
+Epoch 16 | Train 0.3556 | Val 0.3386 | RMSE 0.5844 | R 0.7493 | CI 0.8428 | R2 0.3726 | R2m 0.5070
+Epoch 17 | Train 0.3400 | Val 0.4105 | RMSE 0.6435 | R 0.6909 | CI 0.7950 | R2 0.1830 | R2m 0.4091
+Epoch 18 | Train 0.4030 | Val 0.4742 | RMSE 0.6895 | R 0.7535 | CI 0.8433 | R2 -0.2897 | R2m 0.5092
+Epoch 19 | Train 0.3401 | Val 0.4558 | RMSE 0.6771 | R 0.7786 | CI 0.8624 | R2 0.1798 | R2m 0.5047
+Epoch 20 | Train 0.3259 | Val 0.2878 | RMSE 0.5387 | R 0.7853 | CI 0.8633 | R2 0.4201 | R2m 0.5881
+✅ Saved BEST Train_5
+Epoch 21 | Train 0.3088 | Val 0.2874 | RMSE 0.5381 | R 0.7826 | CI 0.8604 | R2 0.3958 | R2m 0.6006
+✅ Saved BEST Train_5
+Epoch 22 | Train 0.2943 | Val 0.3340 | RMSE 0.5805 | R 0.7662 | CI 0.8427 | R2 0.1112 | R2m 0.5672
+Epoch 23 | Train 0.3187 | Val 0.3093 | RMSE 0.5582 | R 0.7835 | CI 0.8580 | R2 0.3309 | R2m 0.6036
+✅ Saved BEST Train_5
+Epoch 24 | Train 0.2973 | Val 0.3017 | RMSE 0.5517 | R 0.7861 | CI 0.8593 | R2 0.5151 | R2m 0.5205
+Epoch 25 | Train 0.2942 | Val 0.2797 | RMSE 0.5311 | R 0.7933 | CI 0.8651 | R2 0.5045 | R2m 0.5707
+Epoch 26 | Train 0.2770 | Val 0.2769 | RMSE 0.5277 | R 0.7929 | CI 0.8631 | R2 0.4065 | R2m 0.6250
+✅ Saved BEST Train_5
+Epoch 27 | Train 0.2722 | Val 0.2759 | RMSE 0.5267 | R 0.7983 | CI 0.8708 | R2 0.4311 | R2m 0.6358
+✅ Saved BEST Train_5
+Epoch 28 | Train 0.2642 | Val 0.2894 | RMSE 0.5395 | R 0.7967 | CI 0.8614 | R2 0.4542 | R2m 0.6143
+Epoch 29 | Train 0.2502 | Val 0.2806 | RMSE 0.5316 | R 0.7886 | CI 0.8572 | R2 0.3638 | R2m 0.6112
+Epoch 30 | Train 0.2548 | Val 0.2902 | RMSE 0.5409 | R 0.8069 | CI 0.8665 | R2 0.4565 | R2m 0.5992
+Epoch 31 | Train 0.2471 | Val 0.3223 | RMSE 0.5698 | R 0.7928 | CI 0.8629 | R2 0.4729 | R2m 0.5698
+Epoch 32 | Train 0.2452 | Val 0.2654 | RMSE 0.5174 | R 0.8104 | CI 0.8676 | R2 0.4613 | R2m 0.6404
+✅ Saved BEST Train_5
+Epoch 33 | Train 0.2308 | Val 0.2743 | RMSE 0.5255 | R 0.8126 | CI 0.8730 | R2 0.4922 | R2m 0.6465
+✅ Saved BEST Train_5
+Epoch 34 | Train 0.2257 | Val 0.2676 | RMSE 0.5190 | R 0.8151 | CI 0.8687 | R2 0.6033 | R2m 0.5688
+Epoch 35 | Train 0.2189 | Val 0.3811 | RMSE 0.6198 | R 0.8040 | CI 0.8572 | R2 -0.0311 | R2m 0.6094
+Epoch 36 | Train 0.2216 | Val 0.2651 | RMSE 0.5161 | R 0.8170 | CI 0.8744 | R2 0.6231 | R2m 0.5508
+Epoch 37 | Train 0.2085 | Val 0.2640 | RMSE 0.5158 | R 0.8127 | CI 0.8719 | R2 0.5484 | R2m 0.6147
+Epoch 38 | Train 0.2024 | Val 0.2410 | RMSE 0.4931 | R 0.8213 | CI 0.8777 | R2 0.5086 | R2m 0.6705
+✅ Saved BEST Train_5
+Epoch 39 | Train 0.2028 | Val 0.2647 | RMSE 0.5161 | R 0.8198 | CI 0.8698 | R2 0.5677 | R2m 0.5875
+Epoch 40 | Train 0.2004 | Val 0.2386 | RMSE 0.4904 | R 0.8272 | CI 0.8754 | R2 0.4554 | R2m 0.6437
+Epoch 41 | Train 0.1881 | Val 0.3117 | RMSE 0.5599 | R 0.8195 | CI 0.8724 | R2 0.5337 | R2m 0.6025
+Epoch 42 | Train 0.1901 | Val 0.2495 | RMSE 0.5010 | R 0.8197 | CI 0.8693 | R2 0.4812 | R2m 0.6697
+Epoch 43 | Train 0.2022 | Val 0.2488 | RMSE 0.5000 | R 0.8268 | CI 0.8709 | R2 0.5266 | R2m 0.6809
+✅ Saved BEST Train_5
+Epoch 44 | Train 0.1753 | Val 0.2438 | RMSE 0.4958 | R 0.8287 | CI 0.8717 | R2 0.5995 | R2m 0.6131
+Epoch 45 | Train 0.1716 | Val 0.2719 | RMSE 0.5226 | R 0.8253 | CI 0.8780 | R2 0.5559 | R2m 0.6384
+Epoch 46 | Train 0.1696 | Val 0.2326 | RMSE 0.4841 | R 0.8315 | CI 0.8770 | R2 0.6050 | R2m 0.6385
+Epoch 47 | Train 0.1684 | Val 0.2394 | RMSE 0.4914 | R 0.8315 | CI 0.8738 | R2 0.6242 | R2m 0.6228
+Epoch 48 | Train 0.1648 | Val 0.2362 | RMSE 0.4880 | R 0.8359 | CI 0.8785 | R2 0.6128 | R2m 0.6266
+Epoch 49 | Train 0.1583 | Val 0.2573 | RMSE 0.5087 | R 0.8326 | CI 0.8816 | R2 0.6312 | R2m 0.5654
+Epoch 50 | Train 0.1304 | Val 0.2229 | RMSE 0.4737 | R 0.8429 | CI 0.8853 | R2 0.6407 | R2m 0.6595
+Epoch 51 | Train 0.1236 | Val 0.2234 | RMSE 0.4744 | R 0.8425 | CI 0.8853 | R2 0.6572 | R2m 0.6244
+Epoch 52 | Train 0.1199 | Val 0.2178 | RMSE 0.4686 | R 0.8404 | CI 0.8801 | R2 0.5881 | R2m 0.7004
+✅ Saved BEST Train_5
+Epoch 53 | Train 0.1214 | Val 0.2202 | RMSE 0.4713 | R 0.8458 | CI 0.8866 | R2 0.6765 | R2m 0.6210
+Epoch 54 | Train 0.1202 | Val 0.2209 | RMSE 0.4720 | R 0.8449 | CI 0.8822 | R2 0.6486 | R2m 0.6592
+Epoch 55 | Train 0.1200 | Val 0.2235 | RMSE 0.4744 | R 0.8401 | CI 0.8810 | R2 0.6345 | R2m 0.6553
+Epoch 56 | Train 0.1179 | Val 0.2168 | RMSE 0.4673 | R 0.8445 | CI 0.8853 | R2 0.6492 | R2m 0.6513
+Epoch 57 | Train 0.1153 | Val 0.2176 | RMSE 0.4682 | R 0.8434 | CI 0.8865 | R2 0.6413 | R2m 0.6641
+Epoch 58 | Train 0.1152 | Val 0.2279 | RMSE 0.4789 | R 0.8431 | CI 0.8808 | R2 0.6442 | R2m 0.6513
+Epoch 59 | Train 0.1045 | Val 0.2120 | RMSE 0.4623 | R 0.8482 | CI 0.8886 | R2 0.6630 | R2m 0.6545
+Epoch 60 | Train 0.1023 | Val 0.2125 | RMSE 0.4628 | R 0.8487 | CI 0.8891 | R2 0.6575 | R2m 0.6567
+Epoch 61 | Train 0.0992 | Val 0.2136 | RMSE 0.4637 | R 0.8487 | CI 0.8882 | R2 0.6663 | R2m 0.6569
+Epoch 62 | Train 0.0978 | Val 0.2128 | RMSE 0.4628 | R 0.8495 | CI 0.8871 | R2 0.6620 | R2m 0.6675
+Epoch 63 | Train 0.0952 | Val 0.2087 | RMSE 0.4586 | R 0.8483 | CI 0.8806 | R2 0.6406 | R2m 0.6879
+Epoch 64 | Train 0.0967 | Val 0.2085 | RMSE 0.4585 | R 0.8493 | CI 0.8856 | R2 0.6538 | R2m 0.6745
+Epoch 65 | Train 0.0915 | Val 0.2090 | RMSE 0.4589 | R 0.8499 | CI 0.8869 | R2 0.6635 | R2m 0.6678
+Epoch 66 | Train 0.0889 | Val 0.2073 | RMSE 0.4572 | R 0.8510 | CI 0.8891 | R2 0.6608 | R2m 0.6784
+Epoch 67 | Train 0.0905 | Val 0.2058 | RMSE 0.4555 | R 0.8513 | CI 0.8882 | R2 0.6587 | R2m 0.6819
+Epoch 68 | Train 0.0892 | Val 0.2107 | RMSE 0.4609 | R 0.8511 | CI 0.8914 | R2 0.6784 | R2m 0.6511
+Epoch 69 | Train 0.0893 | Val 0.2081 | RMSE 0.4582 | R 0.8500 | CI 0.8869 | R2 0.6586 | R2m 0.6753
+Epoch 70 | Train 0.0871 | Val 0.2129 | RMSE 0.4634 | R 0.8500 | CI 0.8890 | R2 0.6583 | R2m 0.6551
+Epoch 71 | Train 0.0842 | Val 0.2059 | RMSE 0.4557 | R 0.8515 | CI 0.8880 | R2 0.6632 | R2m 0.6748
+Epoch 72 | Train 0.0841 | Val 0.2064 | RMSE 0.4562 | R 0.8511 | CI 0.8874 | R2 0.6609 | R2m 0.6753
+⛔ Early stopping triggered at epoch 72

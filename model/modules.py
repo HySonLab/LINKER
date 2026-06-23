@@ -12,7 +12,7 @@ from glob import glob
 import pandas as pd
 import matplotlib.pyplot as plt
 from rdkit import Chem
-
+from torch_geometric.utils import to_dense_batch
 # =========================
 # PyTorch imports
 # =========================
@@ -45,7 +45,9 @@ from utils import *
 from model.base import *
 from model.modules import *
 
-    
+
+
+
 class FINGER_ID(nn.Module):
     def __init__(
         self,
@@ -54,7 +56,7 @@ class FINGER_ID(nn.Module):
         fg_embed_dim=512,        # Embedding dim for static FG type
         pos_embed_dim=128,        # Positional embedding dim (per FG in molecule)
         hidden_dim=960,          # GNN hidden dimension
-        max_tokens = 160):
+        max_tokens = 300):          
         """
         FINGER_ID
         ------------------
@@ -72,6 +74,11 @@ class FINGER_ID(nn.Module):
         # Step 1: GNN → node embeddings
         self.gnn1 = GCNConv(node_feat_dim, hidden_dim)
         self.gnn2 = GCNConv(hidden_dim, hidden_dim)
+        self.gnn3 = GCNConv(hidden_dim, hidden_dim)
+        self.gnn4 = GCNConv(hidden_dim, hidden_dim)
+        self.gnn5 = GCNConv(hidden_dim, hidden_dim)
+        self.gnn6 = GCNConv(hidden_dim, hidden_dim)
+        self.gnn7 = GCNConv(hidden_dim, hidden_dim)
 
         # Step 2: global pool → global_emb
         self.global_pool = global_mean_pool
@@ -83,37 +90,52 @@ class FINGER_ID(nn.Module):
         # Step 5: fuse [static_emb, pos_emb, node_pool_emb, global_emb]
         fused_dim = fg_embed_dim + pos_embed_dim + hidden_dim + hidden_dim
         self.fuse_fg = nn.Linear(fused_dim, hidden_dim)
-        self.count_global = 0
         
     def forward(self, batched_graph, fg_type_tensor, fg_indices_tensor):
         
-        fg_mask = (fg_indices_tensor >= 0).any(dim=-1).float()  # [B, F_max]
+        # fg_mask = (fg_indices_tensor >= 0).any(dim=-1).float()  # [B, F_max]
         graph_x, graph_edge_index, graph_batch = batched_graph.x, batched_graph.edge_index, batched_graph.batch
+
+        ######## GCN ########
         graph_x = F.relu(self.gnn1(graph_x, graph_edge_index))
-        graph_x = self.gnn2(graph_x, graph_edge_index)
-        # print('graph_x: ', graph_x.shape)
+        graph_x = F.relu(self.gnn2(graph_x, graph_edge_index))
+        graph_x = F.relu(self.gnn3(graph_x, graph_edge_index))
+        graph_x = F.relu(self.gnn4(graph_x, graph_edge_index))
+        graph_x = F.relu(self.gnn5(graph_x, graph_edge_index))
+        graph_x = F.relu(self.gnn6(graph_x, graph_edge_index))
+        graph_x = self.gnn7(graph_x, graph_edge_index)
+        ########################################
+        
+        ###### Single atom #####
+        
+        # x_dense, atom_mask = to_dense_batch(
+        #    graph_x,
+        #    graph_batch
+        # )   
+        # return x_dense, atom_mask
+    
+        #########################
+        
+        
         # # Step 2: global pooling
         global_emb = self.global_pool(graph_x, graph_batch)  # [B, hidden_dim]
-        # print('global_emb: ', global_emb.shape)
         B, F_max = fg_type_tensor.shape
-        # print(fg_type_tensor)
         device = graph_x.device
-        # print('device: ', device)
-        # print(F_max)
         # # Step 3: static + positional embedding
         fg_static = self.static_fg_embedding(fg_type_tensor)  # [B, F_max, fg_embed_dim]
+        
         positions = torch.arange(F_max, device=device).unsqueeze(0).expand(B, -1)
         fg_pos = self.pos_embedding(positions)  # [B, F_max, pos_embed_dim]
         # Step 4: pool node embeddings per FG group
         fg_node_repr = []
-        fg_valid_mask = []  # [B, F_max] = 1 nếu FG hợp lệ, 0 nếu là padding
+        fg_valid_mask = []  # [B, F_max] = 1 if FG, 0 if padding
+
         
         for b in range(B):
             fg_repr_per_mol = []
             valid_per_mol = []
             for f in range(F_max):
                 atom_ids = fg_indices_tensor[b, f]
-                
                 mask = atom_ids >= 0
                 atom_ids = atom_ids[mask]
                 if atom_ids.numel() == 0:
@@ -135,19 +157,9 @@ class FINGER_ID(nn.Module):
         global_expanded = global_emb.unsqueeze(1).expand(-1, F_max, -1)  # [B, F_max, hidden_dim]
         fg_fused = torch.cat([fg_static, fg_pos, fg_node_repr, global_expanded], dim=-1)  # [B, F_max, fused_dim]
         fg_fused = self.fuse_fg(fg_fused)  # [B, F_max, hidden_dim]
-        
-        # print("fg_type_tensor: ",fg_type_tensor)
-        # print("fg_indices_tensor: ",fg_indices_tensor)
-        # print("fg_valid_mask: ",fg_valid_mask)
-        # split = 'test'
-        # os.makedirs(f"/home/phuc.phamhuythienai@gmail.com/Desktop/ExplainabilityInteraction/src/model/{split}_tsne_pdbbind", exist_ok=True)
-        # for i in range(len(fg_valid_mask)):
-        #     mask = fg_valid_mask[i]
-        #     dict_save = {'fg_type_tensor': fg_type_tensor[i][mask], 'attn_out':attn_out[i][mask]}
-        #     with open(f"/home/phuc.phamhuythienai@gmail.com/Desktop/ExplainabilityInteraction/src/model/{split}_tsne_pdbbind/{self.count_global}.pkl", "wb") as f:
-        #         pickle.dump(dict_save, f)
-        #     self.count_global += 1
         return fg_fused, fg_valid_mask
+
+
 
 
 class SCAT(nn.Module):
@@ -171,6 +183,8 @@ class SCAT(nn.Module):
         masked_output_ligand = ligand_output_ark* ligand_mask_ark.unsqueeze(-1)  # [B, Lp, D]
         
         return masked_output_protein, masked_output_ligand
+
+        
     
 class ARKMAB(nn.Module):
     """
@@ -467,7 +481,6 @@ class LINKER(nn.Module):
         
         return logits.permute(0, 2, 1, 3)
 
-
 ##### DTA Predictor ######
 class BindingHead(nn.Module):
     def __init__(self, input_dim):
@@ -476,7 +489,7 @@ class BindingHead(nn.Module):
         self.fc1 = nn.Linear(input_dim, input_dim)
         self.fc2 = nn.Linear(input_dim, input_dim // 2)
         self.fc3 = nn.Linear(input_dim // 2, 1)
-        self.dropout = nn.Dropout(0.15)
+        self.dropout = nn.Dropout(0.05)
         self.norm = nn.LayerNorm(input_dim)
 
     def forward(self, x):
@@ -496,7 +509,7 @@ class BindingHead(nn.Module):
 # Attention Pooling
 # =======================
 class AttentionPool(nn.Module):
-    def __init__(self, dim, dropout=0.1):
+    def __init__(self, dim, dropout=0.05):
         super().__init__()  
         self.score = nn.Sequential(
             nn.LayerNorm(dim),
@@ -530,19 +543,16 @@ class AttentionPool(nn.Module):
 # =======================
 # Main Model
 # =======================
-class DTA_Predictor(nn.Module):
-    def __init__(self, num_fg_types=205, embedding_dim=960, num_heads=8):
+class FINGERID_DTA(nn.Module):
+    def __init__(self, num_fg_types=205, embedding_dim=960):
         super().__init__()
-
-        self.scat = SCAT(embedding_dim=embedding_dim, num_heads=num_heads)
         self.finger_id = FINGER_ID(num_fg_types=num_fg_types)
-
-        # replace mean pooling
+        # attention pooling
         self.prot_pool = AttentionPool(embedding_dim)
         self.lig_pool  = AttentionPool(embedding_dim)
         # final predictor
         self.mlp = BindingHead(input_dim=embedding_dim * 2)
-        
+
     def forward(
         self,
         prot_vector,
@@ -559,32 +569,18 @@ class DTA_Predictor(nn.Module):
             fg_type_tensor,
             fg_indices_tensor
         )
-
-        # =======================
-        # Cross attention
-        # =======================
-        prot_out, lig_out = self.scat(
-            prot_vector,
-            prot_mask,
-            fg_embedded,
-            fg_mask
-        )
-
         # =======================
         # Attention pooling
         # =======================
-        prot_emb = self.prot_pool(prot_out, prot_mask)
-        lig_emb  = self.lig_pool(lig_out, fg_mask)
-
+        prot_emb = self.prot_pool(prot_vector, prot_mask)
+        lig_emb  = self.lig_pool(fg_embedded, fg_mask)
         # =======================
         # Concatenate
         # =======================
-        combined = torch.cat([prot_emb, lig_emb], dim=1)
-
+        combined = torch.cat((prot_emb, lig_emb), dim=1)
         # =======================
         # Prediction
         # =======================
         pred = self.mlp(combined)
 
         return pred
-

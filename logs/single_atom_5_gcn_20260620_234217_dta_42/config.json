@@ -1,0 +1,9 @@
+{
+    "exp_name": "single_atom_5_gcn",
+    "num_seeds": "42",
+    "csv_path": "data/Davis/Davis_preprocessed.csv",
+    "batch_size": "64",
+    "protein_emb_path": "datapreprocessed/DavisFeature/protein_embeddings.pkl",
+    "fg_instance_path": "datapreprocessed/DavisFeature/fg_instance.pkl",
+    "ligand_graph_path": "datapreprocessed/DavisFeature/ligand_graph.pkl"
+}
