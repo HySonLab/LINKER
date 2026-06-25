@@ -1,4 +1,3 @@
-data/*
 checkpoints/*
 datapreprocessed/
 evaluation/best_logits

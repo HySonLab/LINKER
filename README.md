@@ -100,23 +100,6 @@ We use publicly available protein–ligand complex datasets:
     ├─ dataloader/
     ├─ ...
   ```
-
-- **Davis**
-
-  Please download the dataset from: https://github.com/hkmztrk/DeepDTA/tree/master/data/davis
-  Then extract it into your data/Davis directory. After completing the above steps, the directory structure should look like this:
-    ```text
-  LINKER/
-    ├─ data/
-    ├─── Davis/
-    ├────── folds/
-              ├─── test_fold_setting1.txt
-              ├─── train_fold_setting1.txt
-    ├────── Y
-    ├────── ....
-    ├─ dataloader/
-    ├─ ...
-  ```
 ---
 
 ## Pipeline
@@ -133,11 +116,18 @@ Preprocess the PDBBind dataset and split it according to LP_PDBBind.
 ```bash
 bash script/BindingDBPreprocessing.sh
 ```
+
+Preprocess the Davis dataset.
+```bash
+bash script/DTAPreprocessing.sh
+```
+
 ### 2. Featurizer 
 Extract chemical and structural features from processed protein–ligand complexes, including functional group annotations and residue-level representations.
 ```bash
 bash script/PDBBindFeaturizer.sh
 bash script/BindingDBFeaturizer.sh
+bash script/DTAFeaturizer.sh
 ```
 ### 3. Dataloader 
 Construct datasets and dataloaders with batching, masking, and padding strategies for efficient model training.
@@ -153,6 +143,12 @@ Train the **Binding Affinity** model on the pretrained features and save checkpo
 ```bash
 bash script/Run_Predictor.sh
 ```
+
+Train the **FINGERID-DTA** model on the prepared dataset and save checkpoints:
+```bash
+bash script/Run_DTA.sh
+```
+
 ## Acknowledgement
 
 - **[PLIP](https://github.com/pharmai/plip):** Protein-Ligand Interaction Profiler (PLIP)
