@@ -100,6 +100,28 @@ We use publicly available protein–ligand complex datasets:
     ├─ dataloader/
     ├─ ...
   ```
+
+- **Davis**  
+Please download the dataset from: https://github.com/hkmztrk/DeepDTA/tree/master/data/davis
+Then extract it into your data/Davis directory. 
+
+Or using the preprocessed data:
+```text
+LINKER/
+  ├─ data/
+  ├─── Davis/
+  ├────── ligands_can.txt/
+  ├────── proteins.txt/
+  ├────── test_fold.txt/
+  ├────── train_folds.txt/
+  ├────── Y/
+  ├────── Davis_preprocessed.csv/
+  ├────── ....
+  ├─ dataloader/
+  ├─ ...
+
+The analysis of the Davis dataset is presented in codedebug/DTA_Data.ipynb.
+```
 ---
 
 ## Pipeline
