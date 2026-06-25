@@ -336,12 +336,12 @@ if __name__ == "__main__":
     parser.add_argument("--data_name", type=str, required=False, help="Dataset name for DTA (e.g., Davis)", default="Davis")
     args = parser.parse_args()
 
-
-    # featurizer = BindingDBDrugFeaturizer(args.input_dir, args.output_dir)
-    # featurizer.process_all()
-
-    # featurizer = PDBBindDrugFeaturizer(args.input_dir, args.output_dir)
-    # featurizer.process_all()
-
-    featurizer = DTADrugFeaturizer(args.input_dir, args.output_dir, args.data_name)
-    featurizer.process_all()
+    if args.data_name == "BindingDB":
+        featurizer = BindingDBDrugFeaturizer(args.input_dir, args.output_dir)
+        featurizer.process_all()
+    elif args.data_name == "PDBBind":
+        featurizer = PDBBindDrugFeaturizer(args.input_dir, args.output_dir)
+        featurizer.process_all()
+    elif args.data_name == "Davis":
+        featurizer = DTADrugFeaturizer(args.input_dir, args.output_dir, args.data_name)
+        featurizer.process_all()

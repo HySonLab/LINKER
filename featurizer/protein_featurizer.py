@@ -163,15 +163,18 @@ if __name__ == "__main__":
     parser.add_argument('--device', type=str, default='cuda',
                         help='Device to run model on: "cuda" or "cpu"')
     args = parser.parse_args()
-
-    # featurizer = PDBBindProteinFeaturizer(device=args.device)
-    # featurizer.process_all(pkl_dir=args.input_dir, output_dir=args.output_dir)
-
-    # featurizer = BindingDBProteinFeaturizer(device=args.device)
-    # featurizer.process_all(pkl_dir=args.input_dir, output_dir=args.output_dir)
- 
-    featurizer      = DTAProteinFeaturizer(device=args.device)
-    csv_file        = os.path.join(args.input_dir, args.data_name, f"{args.data_name}_preprocessed.csv")
-    featurizer.process_all(csv_file=csv_file, output_dir=args.output_dir)
     
+    if args.data_name == "BindingDB":
+        featurizer = BindingDBProteinFeaturizer(device=args.device)
+        featurizer.process_all(pkl_dir=args.input_dir, output_dir=args.output_dir)
+    
+    elif args.data_name == "PDBBind":
+        featurizer = PDBBindProteinFeaturizer(device=args.device)
+        featurizer.process_all(pkl_dir=args.input_dir, output_dir=args.output_dir)
+    
+    elif args.data_name == "Davis":
+        featurizer      = DTAProteinFeaturizer(device=args.device)
+        csv_file        = os.path.join(args.input_dir, args.data_name, f"{args.data_name}_preprocessed.csv")
+        featurizer.process_all(csv_file=csv_file, output_dir=args.output_dir)
+        
 
