@@ -160,8 +160,15 @@ Train the **FINGERID-DTA** model on the prepared dataset and save checkpoints:
 bash script/Run_DTA.sh
 ```
 
-## Acknowledgement
 
+
+Preliminary versions of this work were presented at NeurIPS 2025 workshops:
+- AI for Science: https://openreview.net/pdf?id=LsDdZUSVso 
+- Multi-modal Foundation Models and Large Language Models for Life Sciences: https://openreview.net/pdf?id=En4Q41ZA3T
+- Machine Learning and the Physical Sciences: https://ml4physicalsciences.github.io/2025/files/NeurIPS_ML4PS_2025_102.pdf 
+
+
+## Acknowledgement
 
 
 - **[PLIP](https://github.com/pharmai/plip):** Protein-Ligand Interaction Profiler (PLIP)
@@ -191,13 +198,6 @@ bash script/Run_DTA.sh
   urldate = {2024-12-04}
 }
 ```
-
-
-Preliminary versions of this work were presented at NeurIPS 2025 workshops:
-- AI for Science: https://openreview.net/pdf?id=LsDdZUSVso 
-- Multi-modal Foundation Models and Large Language Models for Life Sciences: https://openreview.net/pdf?id=En4Q41ZA3T
-- Machine Learning and the Physical Sciences: https://ml4physicalsciences.github.io/2025/files/NeurIPS_ML4PS_2025_102.pdf 
-
 
 ## If our work is useful, please cite it!
 
