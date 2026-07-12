@@ -1,13 +1,10 @@
 # LINKER: Learning Interactions Between Functional Groups and Residues with Chemical Knowledge-Enhanced Reasoning and Explainability
 
+<p align="center">
+  <img src="assets/Abstract_Graphical.png" width="700"/>
+</p>
+
 LINKER is a framework for modeling and explaining protein–ligand interactions by explicitly learning interactions between ligand functional groups and protein residues. The method integrates chemical knowledge, structural information, and deep learning to improve interpretability in structure-based drug discovery.
-
-Preliminary versions of this work were presented at NeurIPS 2025 workshops:
-- AI for Science: https://openreview.net/pdf?id=LsDdZUSVso 
-- Multi-modal Foundation Models and Large Language Models for Life Sciences: https://openreview.net/pdf?id=En4Q41ZA3T
-- Machine Learning and the Physical Sciences: https://ml4physicalsciences.github.io/2025/files/NeurIPS_ML4PS_2025_102.pdf 
-
-
 ---
 
 ## LINKER Architecture
@@ -172,6 +169,8 @@ bash script/Run_DTA.sh
 
 ## Acknowledgement
 
+
+
 - **[PLIP](https://github.com/pharmai/plip):** Protein-Ligand Interaction Profiler (PLIP)
 ```bibtex
 @article{salentin2015plip,
@@ -199,6 +198,13 @@ bash script/Run_DTA.sh
   urldate = {2024-12-04}
 }
 ```
+
+
+Preliminary versions of this work were presented at NeurIPS 2025 workshops:
+- AI for Science: https://openreview.net/pdf?id=LsDdZUSVso 
+- Multi-modal Foundation Models and Large Language Models for Life Sciences: https://openreview.net/pdf?id=En4Q41ZA3T
+- Machine Learning and the Physical Sciences: https://ml4physicalsciences.github.io/2025/files/NeurIPS_ML4PS_2025_102.pdf 
+
 
 ## If our work is useful, please cite it!
 
