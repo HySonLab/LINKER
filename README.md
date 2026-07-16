@@ -1,5 +1,9 @@
 # LINKER: Learning Interactions Between Functional Groups and Residues with Chemical Knowledge-Enhanced Reasoning and Explainability
 
+Published at Journal of Chemical Information and Modeling (JCIM): https://pubs.acs.org/doi/10.1021/acs.jcim.6c00527
+
+Presented at NeurIPS 2025 AI for Science Workshop: https://openreview.net/forum?id=LsDdZUSVso
+
 <p align="center">
   <img src="assets/Abstract_Graphical.png" width="700"/>
 </p>
@@ -200,6 +204,21 @@ Preliminary versions of this work were presented at NeurIPS 2025 workshops:
 ```
 
 ## If our work is useful, please cite it!
+
+```bibtex
+@article{doi:10.1021/acs.jcim.6c00527,
+author = {Pham, Phuc and Nguyen, Viet Thanh Duy and Song, Kevin and Chen, Jake and Hy, Truong-Son},
+title = {LINKER: Learning Interactions between Functional Groups and Residues with Chemical Knowledge-Enhanced Reasoning and Explainability},
+journal = {Journal of Chemical Information and Modeling},
+volume = {0},
+number = {0},
+pages = {null},
+year = {0},
+doi = {10.1021/acs.jcim.6c00527},
+URL = {https://doi.org/10.1021/acs.jcim.6c00527},
+eprint = {https://doi.org/10.1021/acs.jcim.6c00527}
+}
+```
 
 ```bibtex
 @inproceedings{
